@@ -2,26 +2,36 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 left-content">
+<!--             <div class="col-sm-3 left-content">
             	<p class="text-center Philosopher filters">Фильтры<hr></p>
-            </div>    
+            </div>    --> 
 
-            <div class="col-sm-offset-1 col-sm-8 content">
+            <div class="col-sm-offset-1 col-sm-10 content">
                 <div class="row">
-                <?php for ($i=0; $i<9; $i++){ ?>
 
+                    @foreach ($discount_products as $d_product)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <img src="{{ url('img/1.jpg')}}" alt="Постельное белье">
+                            <img style="height:260px;" src="{{ url('img/products/discounts/'.$d_product->name_img) }}" alt="Постельное белье">
                             <div class="caption">
-                                <p>Постельное белье Вилюта 8624</p>
-                                <p>от 120.00 грн
-                                <a href="{{ url('/more') }}" class="btn btn-danger pull-right" role="button"> Купить </a></p>
+                                <p>{{ $d_product->category.' '. $d_product->name }}</p>
+
+                                <span class="old-price">
+                                    от {{ $d_product->price }}
+                                </span>
+                                <br/>
+                                <p>
+                                    <span class="price">
+                                       от {{ $d_product->price - $d_product->discount_price.' грн'}}
+                                    </span>
+                                    <a href="{{ url('/more/'.$d_product->id) }}" class="btn btn-danger pull-right" role="button"> Купить </a>
+
+                                </p>
                             </div>
                         </div>
                     </div>
-
-                <?php } ?>
+                    @endforeach
+                    
                 </div>
             </div> 	
         </div>

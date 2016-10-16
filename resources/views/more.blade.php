@@ -2,57 +2,46 @@
 @section('content')
     <div class="container">
 
-            <div class="col-sm-offset-1 col-sm-10 content">
+            <div class="col-sm-offset-1 col-sm-10 content-more">
                 <div class="row">
-                    <div class="col-sm-5">
-                        <img class="img-responsive" src="{{ url('img/1.jpg')}}" alt="Постельное белье" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
-                    </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12 Philosopher">
                         <h3>
-                            Постельное белье Вилюта 8624
+                            {{$product[0]->category.' '.$product[0]->name}}
                         </h3>
-                        <table class="table table-bordered" style="background-color: #fff;">
-                            <tr>
-                                <td>Производитель:</td>
-                                <td>Вилюта (Украина)</td>
-                            </tr>
-                            <tr>
-                                <td>Состав:</td>
-                                <td> 100% хлопок (ранфорс)</td>
-                            </tr>
-                            <tr>
-                                <td>Производитель:</td>
-                                <td>Вилюта (Украина)</td>
-                            </tr>                                                        
-                        </table>
-
-                            <table class="table">
-                                <tr>
-                                    <td><input type="radio" name="option2" value="a2"> Полуторный комплект </td>
-                                    <td> 300 грн </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="option2" value="a2"> Двуспальный комплект </td>
-                                    <td> 400 грн </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="option2" value="a2"> Семейный комплект</td>
-                                    <td> 500 грн </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <a href="{{ url('/more') }}" class="btn btn-danger pull-right" role="button"> Купить </a>
-                                    </td>
-                                </tr>                                                                
-                            </table>
-                            
-                                
-
-                             
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-11" style="padding-top: 25px;">
+
+                    <div class="col-sm-5">
+                        <img class="img-responsive" src="{{ url('img/products/discounts/'.$product[0]->name_img)}}" alt="Постельное белье" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
+                    </div>
+
+                    <div class="col-sm-7">
+                        <table class="table table-bordered table-td-characteristics-product Philoso" style="background-color: #fff;">
+                            <tr>
+                                <th class="text-center">Размер</th>
+                                <th class="text-center">Наполнение</th>
+                                <th class="text-center">Вес</th>
+                                <th class="text-center">Чехол</th>
+                                <th class="text-center" colspan="2">Цена</th>                              
+                            </tr>
+                        @foreach($product_characteristics as $product)
+                            <tr>
+                                <td class="text-center"> {{ $product->size_length.' x '.$product->size_width}} </td>
+                                <td class="text-center"> {{ $product->name_set}} </td>
+                                <td class="text-center"> {{ $product->weight.' кг' }} </td>
+                                <td class="text-center"> {{ $product->cover }} </td>
+                                <td class="text-right"> {{ $product->price.' грн' }} </td>
+                                <td><a href="{{ url('/more') }}" class="btn btn-sm btn-danger pull-right" role="button"> Купить </a></td>
+                            </tr>
+                        @endforeach
+                                                                                                                                                                                                                     
+                        </table>                                                    
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="padding-top: 25px;">
                         <p align="justify">
 Постельное белье из ранфорса с нежным рисунком порадует Вас прекрасным качеством.
 Обратите внимание, что рисунок, нанесенный на наволочку, может несколько отличаться от фотографии.Указанные различия имеют место из-за особенностей орнамента на самой ткани. Напоминаем, что производитель не рассматривает подобное несоответствие в качестве бракованной или некондиционной продукции, поэтому обмену или возврату такие изделия не подлежат.

@@ -8,7 +8,7 @@
     <title>{{ $title }}</title>
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher|Oswald|Scada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher|Oswald|Kelly Slab" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.min.css') }}">
@@ -26,7 +26,8 @@
     </footer>
 
     <!-- JavaScripts -->
-    <!-- <script src="{{ url('js/project.js') }}"></script> -->
+    <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/project.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
 </body>
 </html>

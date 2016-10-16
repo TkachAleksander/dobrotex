@@ -6,6 +6,15 @@ body {
 	background: url(../img/background3.jpg) ;
 }
 
+.thumbnail {
+	min-height: 380px;
+	max-height: 380px;
+}
+
+.table {
+	border: 1px solid #ddd;
+}
+
 .fa-btn {
     margin-right: 8px;
 }
@@ -33,10 +42,11 @@ body {
 	color: #fff;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
-	background-color: rgba(255, 0, 0, 0.3);
-}
-
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:active,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:active,
 .navbar-default .navbar-nav>li>a:focus {
 	color: #fff;
@@ -46,6 +56,14 @@ body {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav>li>a:hover {
 	color: #fff;
+}
+
+.top-menu {
+	border: 1px solid #ddd;
+    margin: 15px 0px;
+    margin-left: 60px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .navbar-default .navbar-nav>.open>a,
@@ -60,13 +78,21 @@ body {
 	border-radius: 2px;
 }
 
-.IndieFlower {
+.Oswald {
 	font-family: 'Oswald', cursive;
 	text-shadow: -1px -1px 2px #000000;
 }
 .Philosopher {
 	font-family: 'Philosopher', sans-serif;
+}
+
+.Philosopher-15 {
+	font-family: 'Philosopher', sans-serif;
 	font-size: 1.5em;
+}
+
+.KellySlab{
+	font-family: 'Kelly Slab', cursive;
 }
 
 .cart {
@@ -85,14 +111,6 @@ body {
 	font-size: bold;
 }
 
-.top-menu {
-	border: 1px solid #ddd;
-    margin: 15px 0px;
-    margin-left: 60px;
-    padding: 0px;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
 .filters {
 	padding-top: 10px;
 }
@@ -103,7 +121,11 @@ body {
 }
 
 .content {
-	padding: 15px;
+	padding: 40px;
+}
+
+.content-more {
+	padding: 0px 40px 40px 40px;
 }
 
 .navbar-nav>li>{
@@ -111,11 +133,31 @@ body {
 }
 
 .content,
-.left-content {
+.left-content,
+.content-more {
 	background-color: rgba(255,255,255,0.9);
 	min-height: 500px;
 	border: 1px solid rgba(0, 31, 255, 0.22);
 	border-radius: 2px;
+}
+
+.old-price {
+	text-decoration: line-through;
+}
+
+.price {
+	font-size: 23px;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.table-td-characteristics-product>tbody>tr>td {
+	/*padding: 2px;*/
+	vertical-align: middle;
+}
+
+.text-right {
+	text-align: right;
 }
 
 footer {
