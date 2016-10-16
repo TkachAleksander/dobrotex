@@ -20,21 +20,25 @@
                         <table class="table table-bordered table-td-characteristics-product Philoso" style="background-color: #fff;">
                             <tr>
                                 <th class="text-center">Размер</th>
-                                <th class="text-center">Наполнение</th>
                                 <th class="text-center">Вес</th>
                                 <th class="text-center">Чехол</th>
-                                <th class="text-center" colspan="2">Цена</th>                              
+                                <th class="text-center" colspan="2">Цена</th>                           
                             </tr>
                         @foreach($product_characteristics as $product)
                             <tr>
-                                <td class="text-center"> {{ $product->size_length.' x '.$product->size_width}} </td>
-                                <td class="text-center"> {{ $product->name_set}} </td>
-                                <td class="text-center"> {{ $product->weight.' кг' }} </td>
+                                <td class="text-center"> {{ $product->size_length.' x '.$product->size_width.' см'}} </td>
+                                <td class="text-center"> {{ $product->weight.' г' }} </td>
                                 <td class="text-center"> {{ $product->cover }} </td>
                                 <td class="text-right"> {{ $product->price.' грн' }} </td>
-                                <td><a href="{{ url('/more') }}" class="btn btn-sm btn-danger pull-right" role="button"> Купить </a></td>
+                                <td><a href="{{ url('/buy/'.$product->id) }}" class="btn btn-sm btn-danger pull-right" role="button"> Купить </a></td>
                             </tr>
                         @endforeach
+                            <tr>
+                                <th class="text-center">
+                                    Наполнение
+                                </th>
+                                <td class="text-center" colspan="5">{{ $product_characteristics[0]->name_set}}</td>
+                            </tr>
                                                                                                                                                                                                                      
                         </table>                                                    
                     </div>

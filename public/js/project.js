@@ -1,5 +1,5 @@
-if (window.location.href == 'http://dobrotex'+$('.top-menu li a').attr('href')){
-	 $('#cat2').addClass('active');
-	// $('#cat2').
+if (window.location.href == 'http://dobrotex/'){ $('#cat2').addClass('active'); }
 
-}
+if (window.location.href == 'http://dobrotex/blankets'){ $('#cat1').addClass('active'); }
+
+if (window.location.href == 'http://dobrotex/pillow'){ $('#cat0').addClass('active'); }

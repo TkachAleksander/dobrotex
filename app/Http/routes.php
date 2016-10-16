@@ -1,14 +1,11 @@
 <?php
 
+Route::auth();
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/', 'DiscountController@index');
-
 Route::get('/more/{id}', 'ProductsController@more');
+Route::get('/blankets', 'ProductsController@blankets');
+Route::get('/pillow', 'ProductsController@pillow');
 
-/*Route::get('/more/{id}', function () {
-	$top_menu = DB::table('top_menu')->get();
 
-	return view('more', [
-		                'title' => 'Подробнее',
-		                'top_menu' => $top_menu
-		                ]);
-});*/

@@ -12,7 +12,7 @@
                     @foreach ($discount_products as $d_product)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <img style="height:260px;" src="{{ url('img/products/discounts/'.$d_product->name_img) }}" alt="Постельное белье">
+                            <img style="height:260px;" src="{{ url('img/products/discounts/'.$d_product->name_img) }}" alt="{{ $d_product->category.' '. $d_product->name }}">
                             <div class="caption">
                                 <p>{{ $d_product->category.' '. $d_product->name }}</p>
 

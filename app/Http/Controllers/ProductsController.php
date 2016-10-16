@@ -11,10 +11,7 @@ class ProductsController extends Controller
 {
     public function more($id) {
     	$top_menu = DB::table('top_menu')->get();
-
-    	$product = DB::table('products')
-    	                ->where('id', '=', $id)
-    	                ->get();
+    	$product = DB::table('products')->where('id', '=', $id)->get();
         
         $product_characteristics = DB::table('set_of_characteristics')
                                        ->where('name_set', '=', $product[0]->set_of_characteristics)   
@@ -26,5 +23,17 @@ class ProductsController extends Controller
 	    	                'product' => $product,
 	    	                'product_characteristics' => $product_characteristics
 	    	                ]);
+    }
+
+    public function blankets() {
+    	$top_menu = DB::table('top_menu')->get();
+
+    	return view ('blankets', ['title' => 'Одеяла', 'top_menu' => $top_menu]);
+    }
+
+        public function pillow() {
+    	$top_menu = DB::table('top_menu')->get();
+
+    	return view ('pillow', ['title' => 'Одеяла', 'top_menu' => $top_menu]);
     }
 }
