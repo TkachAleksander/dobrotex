@@ -13,7 +13,7 @@
                 <div class="row">
 
                     <div class="col-sm-5">
-                        <img class="img-responsive" src="{{ url('img/products/discounts/'.$product[0]->name_img)}}" alt="Постельное белье" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
+                        <img class="img-responsive" src="{{ url('img/products/'.$product[0]->name_img)}}" alt="Постельное белье" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
                     </div>
 
                     <div class="col-sm-7">

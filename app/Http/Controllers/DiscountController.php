@@ -15,6 +15,7 @@ class DiscountController extends Controller
 	$discount_products = DB::table('products')
                             ->join('discounts', 'products.discount', '=', 'discounts.id')
 	                        ->where('discount', '!=', 0)
+	                        ->where('show', '=', 1)
                             ->select('discounts.name as discount_name', 'discounts.discount_price', 'products.*')
 	                        ->get();
 

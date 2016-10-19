@@ -10,12 +10,11 @@ use DB;
 class ProductsController extends Controller
 {
     public function more($id) {
-    	$top_menu = DB::table('top_menu')->get();
-    	$product = DB::table('products')->where('id', '=', $id)->get();
-        
-        $product_characteristics = DB::table('set_of_characteristics')
-                                       ->where('name_set', '=', $product[0]->set_of_characteristics)   
-                                       ->get(); 	                
+    $top_menu = DB::table('top_menu')->get();
+    $product = DB::table('products')->where('id', '=', $id)->where('show', '=', 1)->get();
+    $product_characteristics = DB::table('set_of_characteristics')
+                                     ->where('name_set', '=', $product[0]->set_of_characteristics)   
+                                     ->get(); 	                
 
 	    return view('more', [
 	    	                'title' => 'Подробнее',
@@ -28,12 +27,20 @@ class ProductsController extends Controller
     public function blankets() {
     	$top_menu = DB::table('top_menu')->get();
 
-    	return view ('blankets', ['title' => 'Одеяла', 'top_menu' => $top_menu]);
+    	$blankets = DB::table('products')
+                        ->where('category', '=', 'Одеяло')
+                        ->where('show', '=', 1)->get();
+
+    	return view ('blankets', ['title' => 'Одеяла', 'top_menu' => $top_menu, 'blankets' => $blankets]);
     }
 
         public function pillow() {
     	$top_menu = DB::table('top_menu')->get();
 
-    	return view ('pillow', ['title' => 'Одеяла', 'top_menu' => $top_menu]);
+    	$pillows = DB::table('products')
+                       ->where('category', '=', 'Подушка')
+                       ->where('show', '=', 1)->get();
+
+    	return view ('pillow', ['title' => 'Подушки', 'top_menu' => $top_menu, 'pillows' => $pillows]);
     }
 }

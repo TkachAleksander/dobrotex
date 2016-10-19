@@ -12,7 +12,8 @@
                     @foreach ($discount_products as $d_product)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <img style="height:260px;" src="{{ url('img/products/discounts/'.$d_product->name_img) }}" alt="{{ $d_product->category.' '. $d_product->name }}">
+                            <a href="{{ url('/more/'.$d_product->id) }}">
+                            <img style="height:260px;" src="{{ url('img/products/'.$d_product->name_img) }}" alt="{{ $d_product->category.' '. $d_product->name }}">
                             <div class="caption">
                                 <p>{{ $d_product->category.' '. $d_product->name }}</p>
 
@@ -24,10 +25,11 @@
                                     <span class="price">
                                        от {{ $d_product->price - $d_product->discount_price.' грн'}}
                                     </span>
-                                    <a href="{{ url('/more/'.$d_product->id) }}" class="btn btn-danger pull-right" role="button"> Купить </a>
+                                    <a href="/" class="btn btn-danger pull-right" role="button"> Купить </a>
 
                                 </p>
                             </div>
+                            </a>
                         </div>
                     </div>
                     @endforeach
