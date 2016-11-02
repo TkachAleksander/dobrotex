@@ -11,8 +11,20 @@ body {
 	max-height: 380px;
 }
 
-.table {
+.thumbnail > a,
+.caption a {
+	text-decoration: none;
+	color: #000;
+}
+
+.caption .buy {
+	color: #fff;
+}
+
+.table,
+.table>tbody>tr>th {
 	border: 1px solid #ddd;
+	vertical-align: middle;
 }
 
 .fa-btn {
@@ -134,7 +146,7 @@ body {
 }
 
 .content-more {
-	padding: 0px 40px 40px 40px;
+	padding: 40px;
 }
 
 .navbar-nav>li>{
@@ -163,6 +175,22 @@ body {
 .table-td-characteristics-product>tbody>tr>td {
 	/*padding: 2px;*/
 	vertical-align: middle;
+}
+
+.block-size {
+	display: table;
+	float: left;
+	margin-right: 5px;
+	height: 35px;
+	width: 50px;
+	background-color: #b70000;
+}
+
+.text-size {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	color: #fff;
 }
 
 .text-right {

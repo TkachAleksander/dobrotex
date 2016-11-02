@@ -25,7 +25,7 @@
                                     <span class="price">
                                        от {{ $d_product->price - $d_product->discount_price.' грн'}}
                                     </span>
-                                    <a href="/" class="btn btn-danger pull-right" role="button"> Купить </a>
+                                    <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>
 
                                 </p>
                             </div>

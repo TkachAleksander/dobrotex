@@ -17,7 +17,7 @@
                                     <span class="price">
                                        от {{ $blanket->price.' грн'}}
                                     </span>
-                                    <a href="/" class="btn btn-danger pull-right" role="button"> Купить </a>
+                                    <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>
                                 </p>
                             </div>
                             </a>

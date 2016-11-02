@@ -1,7 +1,7 @@
 /* Подсветка активных вкладок */
 if (window.location.href == 'http://dobrotex/'){ $('#cat2').addClass('active'); }
 if (window.location.href == 'http://dobrotex/blankets'){ $('#cat1').addClass('active'); }
-if (window.location.href == 'http://dobrotex/pillow'){ $('#cat0').addClass('active'); }
+if (window.location.href == 'http://dobrotex/pillow' || $('.Philosopher h3').val() == 'Подушка'){ $('#cat0').addClass('active'); }
 
 /* Подтверждение удаления */
 $('.confirmDelete').on('click', function() {
@@ -13,6 +13,8 @@ $('.confirmDelete').on('click', function() {
 });
 
 /* Multiselect */
- $('#categories').multiselect();
- $('#sets').multiselect();
- $('#discount').multiselect();
+$('#categories').multiselect();
+$('#sets').multiselect();
+$('#discount').multiselect();
+
+
