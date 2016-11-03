@@ -13,17 +13,17 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             <a href="{{ url('/more/'.$d_product->id) }}">
-                            <img style="height:260px;" src="{{ url('img/products/'.$d_product->name_img) }}" alt="{{ $d_product->category.' '. $d_product->name }}">
+                            <img style="height:260px;" src="{{ url('img/products/'.$d_product->name_img) }}" alt="{{ $d_product->category.' '. $d_product->name }}" title="{{ $d_product->category.' '. $d_product->name }}">
                             <div class="caption">
                                 <p>{{ $d_product->category.' '. $d_product->name }}</p>
 
                                 <span class="old-price">
-                                    от {{ $d_product->price }}
+                                    {{ $d_product->price }}
                                 </span>
                                 <br/>
                                 <p>
                                     <span class="price">
-                                       от {{ $d_product->price - $d_product->discount_price.' грн'}}
+                                       {{ $d_product->price - $d_product->discount_price.' грн'}}
                                     </span>
                                     <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>
 

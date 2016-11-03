@@ -10,12 +10,12 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             <a href="{{ url('/more/'.$blanket->id) }}">
-                            <img style="height:260px;" src="{{ url('img/products/'.$blanket->name_img) }}" alt="{{ $blanket->category.' '. $blanket->name }}">
+                            <img style="height:260px;" src="{{ url('img/products/'.$blanket->name_img) }}" alt="{{ $blanket->category.' '. $blanket->name }}" title="{{ $blanket->category.' '. $blanket->name }}">
                             <div class="caption">
                                 <p>{{ $blanket->category.' '. $blanket->name }}</p>
                                 <p>
                                     <span class="price">
-                                       от {{ $blanket->price.' грн'}}
+                                       {{ $blanket->price.' грн'}}
                                     </span>
                                     <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>
                                 </p>

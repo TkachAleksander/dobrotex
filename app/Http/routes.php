@@ -22,3 +22,5 @@ Route::get('/showProducts', 'AdminController@showProducts');
 Route::get('/boolProduct/{id}/{bool}', 'AdminController@hideProduct');
 Route::get('/removeProduct/{id}', 'AdminController@removeProduct');
 Route::get('/removeDiscount/{id}', 'AdminController@removeDiscountToServer');
+Route::get('/setContact', 'AdminController@setContact');
+Route::post('/setContact', 'AdminController@setContactToServer');

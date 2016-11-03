@@ -28,38 +28,47 @@
                                         <p><input type="text" class="form-control" name="price" placeholder="Цена продажи" required></p>
                                     </div>       
         
-<!-- MULTISELECT -->
-                                    <div class="col-sm-4">
-                                        <p><select id="categories" name="category">
+                                    <div class="col-sm-3">
+                                        <p><select id="categories" class="multiselect" name="category">
                                         @foreach($categories as $cat)
                                             <option value="{{ $cat->name }}">{{ $cat->name }}</option>
                                         @endforeach
                                         </select></p>
                                     </div>     
                                     <div class="col-sm-4">
-                                    <p><select id="sets" name="set_of_characteristics">
+                                    <p><select id="sets" class="multiselect" name="set_of_characteristics">
                                         @foreach($sets as $set)
                                             <option value="{{ $set->name }}">{{ $set->name }}</option>
                                         @endforeach
                                         </select></p>
                                     </div>     
                                     <div class="col-sm-4">
-                                        <p><select id="discount" name="discount">
+                                        <p><select id="discount" class="multiselect" name="discount">
                                         <option value="0">Отсутствует</option>
                                         @foreach($discounts as $discount)
                                             <option value="{{ $discount->id }}">{{ $discount->name }}</option>
                                         @endforeach
                                         </select></p>
-                                    </div>                                    
-                                    <!-- - -->    
+                                    </div>  
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <p><select id="size" class="multiselect" name="size">
+                                        @foreach($sizes as $size)
+                                            <option value="{{ $size->name_sizes }}">{{ $size->name_sizes }}</option>
+                                        @endforeach
+                                        </select></p>
+                                    </div> 
+                                    <div class="col-sm-3">
+                                        <input class="form-control" type="text" name="kg" placeholder="кг">  
+                                    </div>                                                                         
+                                </div>
+                                <div class="row">
                 
                                     <div class="col-sm-12">
-                                        <p><textarea class="form-control" rows="5" name="description" placeholder="Описание" style="max-width: 442px;" required></textarea></p>
+                                        <p><textarea class="form-control" rows="5" name="description" placeholder="Описание" style="max-width: 442px;" ></textarea></p>
                                     </div>
         
-                                    <div class="col-sm-12">
-                                        <p><input type="text" class="form-control" name="name_img" placeholder="Имя фото" required></p>
-                                    </div>
                                     <div class="col-sm-12">
                                         <input type="file" name="photo">
                                     </div>

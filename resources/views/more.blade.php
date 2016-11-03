@@ -16,15 +16,20 @@
                             </h3>
                         </div>
                         <div class="col-sm-10">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" style="margin-bottom: 0px;">
+
+                                <tr>
+                                    <th>Вес:</th>
+                                    <td>{{ $product[0]->kg.' кг' }}</td>
+                                </tr>                                
                                 <tr>
                                     <th>Размер:</th>
-                                    <td>{{ $product[0]->size }}</td>
-                                </tr>
+                                    <td>{{ $product[0]->size.' см' }}</td>
+                                </tr>                                
                                 <tr>
                                     <th>Наполнитель:</th>
                                     <td>{{ $product[0]->set_of_characteristics }}</td>
-                                </tr>
+                                </tr>                              
                                 <tr>
                                     <th>Цена:</th>
                                     <td>
@@ -36,10 +41,11 @@
                                         @endif   
                                         </span>
                                     </td>                                
-                                </tr>
+                                </tr>                           
                             </table>
+                            <p class="pull-right">Код продукта: {{ $product[0]->id }}</p>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-10">
                             @foreach($sizes as $key => $size)
                                 <a href="{{ url('more/'.$size->id)}}">
                                 <div class="block-size">

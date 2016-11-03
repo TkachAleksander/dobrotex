@@ -10,12 +10,12 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             <a href="{{ url('/more/'.$pillow->id) }}">
-                            <img style="height:260px;" src="{{ url('img/products/'.$pillow->name_img) }}" alt="{{ $pillow->category.' '. $pillow->name }}">
+                            <img style="height:260px;" src="{{ url('img/products/'.$pillow->name_img) }}" alt="{{ $pillow->category.' '. $pillow->name }}" title="{{ $pillow->category.' '. $pillow->name }}">
                             <div class="caption">
-                                <p>{{ $pillow->category.' '. $pillow->name }}</p>
+                                <p>{{ $pillow->category.' '. $pillow->name }} <span class="pull-right">{{ $pillow->size }}</span> </p>
                                 <p>
                                     <span class="price">
-                                       от {{ $pillow->price.' грн'}}
+                                       {{ $pillow->price.' грн'}}
 
                                     </span>
                                     <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>

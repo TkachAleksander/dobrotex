@@ -13,8 +13,10 @@ $('.confirmDelete').on('click', function() {
 });
 
 /* Multiselect */
-$('#categories').multiselect();
-$('#sets').multiselect();
-$('#discount').multiselect();
+$('.multiselect').multiselect();
+// $('#categories').multiselect();
+// $('#sets').multiselect();
+// $('#discount').multiselect();
+// $('#sizes').multiselect();
 
 

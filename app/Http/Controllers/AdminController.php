@@ -35,19 +35,21 @@ class AdminController extends Controller
         $categories = DB::table('categories')->select('name')->get();
         $sets = DB::table('sets')->select('name')->get();
         $discounts = DB::table('discounts')->select('id','name')->get();
+        $sizes = DB::table('sizes')->get();
 
         return view('admin.addNewProduct', [
                                             'products' => $products,
                                             'categories' => $categories,
                                             'sets' => $sets,
-                                            'discounts' => $discounts
+                                            'discounts' => $discounts,
+                                            'sizes' => $sizes
                                             ]);
     }
     
     public function addNewProductToServer(Request $request)
     {
         $photo = $request->file('photo');
-        $name_img = $request->input('name_img').uniqid();
+        $name_img = uniqid();
         $photo->move('img/products',$name_img.'.'.$photo->getClientOriginalExtension());
 
         DB::table('products')->insert([
@@ -56,6 +58,8 @@ class AdminController extends Controller
             'price' => $request->input('price'),
             'discount' => $request->input('discount'),
             'category' => $request->input('category'),
+            'size' => $request->input('size'),
+            'kg' => $request->input('kg'),
             'set_of_characteristics' => $request->input('set_of_characteristics'),
             'description' => $request->input('description'),
             'name_img' => $name_img.'.jpg'
@@ -134,5 +138,27 @@ class AdminController extends Controller
     {
         DB::table('discounts')->where('id', '=', $id)->delete();
         return redirect('/addNewDiscount');
+    }
+
+
+    public function setContact(){
+        $products = DB::table('products')
+                        ->leftJoin('discounts', 'discounts.id', '=', 'products.discount')
+                        ->select('products.*', 'discounts.name as discount_name')
+                        ->get();
+        return view('admin.setContact', ['products' => $products]);
+    }
+
+    public function setContactToServer(Request $request){
+        $all = $request->all();
+        foreach ($all['id_products'] as $key => $value) {
+            DB::table('groups_products')->insert([
+                                                'id_group' => $request->input('id_group'),
+                                                'id_prod' => $value
+                                                ]);
+        }
+
+        return redirect('/setContact');
+
     }
 }
