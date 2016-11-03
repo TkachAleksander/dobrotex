@@ -65,23 +65,31 @@ class ProductsController extends Controller
     	                ]);
     }
 
-    public function blankets() {
-    	$top_menu = DB::table('top_menu')->get();
+    public function getProducts($category) {
+        $top_menu = DB::table('top_menu')->get();
 
-    	$blankets = DB::table('products')
-                        ->where('category', '=', 'Одеяло')
-                        ->where('show', '=', 1)->get();
-
-    	return view ('blankets', ['title' => 'Одеяла', 'top_menu' => $top_menu, 'blankets' => $blankets]);
-    }
-
-        public function pillow() {
-    	$top_menu = DB::table('top_menu')->get();
-
-    	$pillows = DB::table('products')
+        if ($category == 'pillow')
+        {
+            $products = DB::table('products')
                        ->where('category', '=', 'Подушка')
                        ->where('show', '=', 1)->get();
 
-    	return view ('pillow', ['title' => 'Подушки', 'top_menu' => $top_menu, 'pillows' => $pillows]);
+            return view ('products', ['title' => 'Подушки',
+                                      'top_menu' => $top_menu,
+                                      'products' => $products
+                                      ]);
+        }
+
+        if ($category == 'blankets')
+        {
+            $products = DB::table('products')
+                        ->where('category', '=', 'Одеяло')
+                        ->where('show', '=', 1)->get();
+
+            return view ('products', ['title' => 'Одеяла', 
+                                      'top_menu' => $top_menu, 
+                                      'products' => $products
+                                      ]);
+        }
     }
 }

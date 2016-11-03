@@ -9,6 +9,26 @@ body {
 .thumbnail {
 	/*min-height: 380px;*/
 	max-height: 380px;
+	overflow:hidden;
+}
+
+.thumbnail img {
+ -moz-transition: all 1s ease-out;
+ -o-transition: all 1s ease-out;
+ -webkit-transition: all 1s ease-out;
+ }
+ 
+.thumbnail img:hover{
+ -webkit-transform: scale(1.03);
+ -moz-transform: scale(1.03);
+ -o-transform: scale(1.03);
+ }
+
+.thumbinal-img {
+    height: 260px;
+    width: 268px;
+    overflow: hidden;
+    text-align: center;
 }
 
 .thumbnail > a,
@@ -116,6 +136,10 @@ body {
 	font-family: 'Kelly Slab', cursive;
 }
 
+.Lobster {
+	font-family: 'Lobster', cursive;
+}
+
 .cart {
 	height: 60px;
 	width: 60px;
@@ -130,6 +154,10 @@ body {
 	padding: 20px 0;
 	color: #fff;
 	font-size: bold;
+}
+
+.cart > p:hover {
+	cursor: pointer;
 }
 
 .filters {
@@ -147,6 +175,12 @@ body {
 
 .content-more {
 	padding: 40px;
+}
+
+.buy-more,
+.description {
+   font-size: 16px;
+   font-family: 'Lobster', cursive;
 }
 
 .navbar-nav>li>{
@@ -197,6 +231,8 @@ body {
 	text-align: right;
 }
 
+
+
 footer {
 	position: absolute;
 	bottom: 10px;
@@ -204,3 +240,4 @@ footer {
 	width: 100%;
 	background-color: rgba(80, 114, 153, 0.63);
 }
+

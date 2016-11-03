@@ -53,18 +53,20 @@
                                 </div>
                                 </a>
                             @endforeach
-                            <button class="btn btn-md btn-success pull-right"> Купить </button>
+                            <button class="btn btn-md btn-success pull-right buy-more"> Купить </button>
                         </div>
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col-sm-11" style="padding-top: 25px;">
-                        <p align="justify">
+                        <p class="description" align="justify">
                             {{ $product[0]->description }}
                         </p>
                     </div>
                 </div>
+
+                    <input id="category" type="hidden" value="{{ $product[0]->category }}">
             </div> 	
     </div>
 	

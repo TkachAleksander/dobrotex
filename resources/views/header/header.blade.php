@@ -16,13 +16,21 @@
             <ul class="nav navbar-nav top-menu Philosopher-15">
 
                 @foreach($top_menu as $id => $cat)
-                    <li id="{{ 'cat'.$id }}"><a href="{{ $cat->link }}"> {{ $cat->name }} </a></li>
+                    <li id="{{ 'cat'.$id }}">
+                        <a href="{{ $cat->link }}">
+                            {{ $cat->name }}
+                        </a>
+                    </li>
                 @endforeach
 
             </ul>
          
             <ul class="nav navbar-nav navbar-right">
-                <li><div class="cart"><p class="text-center">1500.00<p></div></li>
+                <li>
+                    <div class="cart" data-toggle="modal" data-target="#cart">
+                        <p class="text-center">1500.00<p>
+                    </div>
+                </li>
             </ul>
         </div>
 

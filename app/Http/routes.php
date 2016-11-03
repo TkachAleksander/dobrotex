@@ -1,14 +1,14 @@
 <?php
 
 Route::auth();
-Route::get('/admin', 'AdminController@index');
  
-    Route::get('/', 'DiscountController@index');
-    Route::get('/more/{id}', 'ProductsController@more');
-    Route::get('/blankets', 'ProductsController@blankets');
-    Route::get('/pillow', 'ProductsController@pillow');
+Route::get('/', 'DiscountController@index');
+Route::get('/{category}', 'ProductsController@getProducts');
+Route::get('/more/{id}', 'ProductsController@more');
 
 /* Admin */
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/addNewProduct', 'AdminController@addNewProduct');
 Route::post('/addNewProduct', 'AdminController@addNewProductToServer');
 

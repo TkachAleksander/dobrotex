@@ -19,7 +19,7 @@ class DiscountController extends Controller
                             ->select('discounts.name as discount_name', 'discounts.discount_price', 'products.*')
 	                        ->get();
 
-	return view('home', [
+	return view('discount', [
 		                'title' => 'Акции', 
 		                'top_menu' => $top_menu, 
 		                'discount_products' => $discount_products
