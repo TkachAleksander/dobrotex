@@ -1,26 +1,30 @@
 <?php
 
 Route::auth();
- 
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/', 'DiscountController@index');
-Route::get('/{category}', 'ProductsController@getProducts');
+Route::get('{category}', 'ProductsController@getProducts');
 Route::get('/more/{id}', 'ProductsController@more');
 
 /* Admin */
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin/addNewProduct', 'AdminController@addNewProduct');
+Route::post('/admin/addNewProduct', 'AdminController@addNewProductToServer');
 
-Route::get('/addNewProduct', 'AdminController@addNewProduct');
-Route::post('/addNewProduct', 'AdminController@addNewProductToServer');
+Route::get('/admin/editProduct/{id}', 'AdminController@editProduct');
+Route::post('/admin/editProduct/{id}', 'AdminController@editProductToServer');
 
-Route::get('/editProduct/{id}', 'AdminController@editProduct');
-Route::post('/editProduct/{id}', 'AdminController@editProductToServer');
+Route::get('/admin/addNewDiscount', 'AdminController@addNewDiscount');
+Route::post('/admin/addNewDiscount', 'AdminController@addNewDiscountToServer');
 
-Route::get('/addNewDiscount', 'AdminController@addNewDiscount');
-Route::post('/addNewDiscount', 'AdminController@addNewDiscountToServer');
+Route::get('/admin/showProducts', 'AdminController@showProducts');
+Route::get('/admin/boolProduct/{id}/{bool}', 'AdminController@hideProduct');
+Route::get('/admin/removeProduct/{id}', 'AdminController@removeProduct');
+Route::get('/admin/removeDiscount/{id}', 'AdminController@removeDiscountToServer');
 
-Route::get('/showProducts', 'AdminController@showProducts');
-Route::get('/boolProduct/{id}/{bool}', 'AdminController@hideProduct');
-Route::get('/removeProduct/{id}', 'AdminController@removeProduct');
-Route::get('/removeDiscount/{id}', 'AdminController@removeDiscountToServer');
-Route::get('/setContact', 'AdminController@setContact');
-Route::post('/setContact', 'AdminController@setContactToServer');
+Route::get('/admin/setContact', 'AdminController@setContact');
+Route::post('/admin/setContact', 'AdminController@setContactToServer');
+Route::get('/admin/removeContact/{id}', 'AdminController@removeContact');
+
+/* Cart */
+Route::post('/setCookie', 'CartController@setCookie');

@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
 
-                    <form action="/addNewProduct" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/addNewProduct" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         
                         <div class="row">
@@ -52,7 +52,7 @@
                                     </div>  
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-3">
                                         <p><select id="size" class="multiselect" name="size">
                                         @foreach($sizes as $size)
                                             <option value="{{ $size->name_sizes }}">{{ $size->name_sizes }}</option>

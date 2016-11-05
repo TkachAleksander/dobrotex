@@ -19,7 +19,7 @@
                                     <span class="price">
                                        {{ $product->price.' грн'}}
                                     </span>
-                                    <a href="/" class="btn btn-danger pull-right buy" role="button"> Купить </a>
+                                    <a role="button" class="btn btn-danger pull-right buy" data-id="{{ $product->id }}" role="button"> Купить </a>
                                 </p>
                             </div>
                             </a>

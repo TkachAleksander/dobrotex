@@ -14,7 +14,8 @@
     <!-- Styles -->
    
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('css/bootstrap-multiselect.css') }}" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap-multiselect.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/admin-project.css') }}">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>

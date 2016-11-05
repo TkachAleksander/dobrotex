@@ -4,16 +4,40 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Список всех товаров 
+                    Удалить связь 
                     <span class="pull-right">
                     </span>
                 </div>
 
                 <div class="panel-body">
-                    <form action="/setContact" method="POST">
+                    <table class="table table-bordered">
+                    @foreach($groups_products as $group_products)
+                        <tr>
+                            <td>{{ $group_products->id_group }}</td>
+                            <td>{{ $group_products->id_prod }}</td>
+                            <td><a href="{{ url('/admin/removeContact/'. $group_products->id) }}" class="btn btn-sm btn-danger btn-padding"> del </a></td>
+                        </tr>
+                    @endforeach
+                    </table>
+
+                </div>
+
+            </div>        
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Добавить связь
+                    <span class="pull-right">
+                    </span>
+                </div>
+
+                <div class="panel-body">
+                    <form action="/admin/setContact" method="POST">
                     {{ csrf_field() }}
                             <div class="col-sm-6">
                                 <input class="form-control" type="text" name="id_group" placeholder="Код товара к которому привязываем" style="margin-bottom: 20px;" required>
@@ -87,16 +111,16 @@
                                                     <tr>
                                                         <td></td>
                                                         <td>
-                                                                <a href="{{ url('/editProduct/'.$product->id) }}" class="btn btn-sm btn-primary"> Редактировать </a>
+                                                                <a href="{{ url('/admin/editProduct/'.$product->id) }}" class="btn btn-sm btn-primary"> Редактировать </a>
                                                                 
                                                                 @if ($product->show)
-                                                                    <a href="{{ url('/boolProduct/'.$product->id.'/0') }}" class="btn btn-sm btn-primary"> Скрыть от пользователей </a>
+                                                                    <a href="{{ url('/admin/boolProduct/'.$product->id.'/0') }}" class="btn btn-sm btn-primary"> Скрыть от пользователей </a>
                                                                 @else
-                                                                    <a href="{{ url('/boolProduct/'.$product->id.'/1') }}" class="btn btn-sm btn-success"> Показать пользователям </a>
+                                                                    <a href="{{ url('/admin/boolProduct/'.$product->id.'/1') }}" class="btn btn-sm btn-success"> Показать пользователям </a>
                                                                 @endif
                                                                 
                                                             <span class="pull-right">
-                                                                <a href="{{ url('/removeProduct/'.$product->id) }}" class="btn btn-sm btn-danger confirmDelete"> Удалить </a>
+                                                                <a href="{{ url('/admin/removeProduct/'.$product->id) }}" class="btn btn-sm btn-danger confirmDelete"> Удалить </a>
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -113,7 +137,6 @@
                     </form>
                 </div>
 
-                </div>
             </div>
         </div>
     

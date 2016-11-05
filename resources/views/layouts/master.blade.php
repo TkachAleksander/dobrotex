@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="token" name="token" content="{{ csrf_token() }}">
 
     <title>{{ $title }}</title>
     <!-- FONTS -->
@@ -29,6 +30,7 @@
 
     <!-- JavaScripts -->
     <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/cookies.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/project.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
 

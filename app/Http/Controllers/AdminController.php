@@ -64,7 +64,7 @@ class AdminController extends Controller
             'description' => $request->input('description'),
             'name_img' => $name_img.'.jpg'
             ]);
-        return redirect('/addNewProduct');
+        return redirect('/admin/addNewProduct');
     } 
 
     public function showProducts()
@@ -78,8 +78,16 @@ class AdminController extends Controller
 
     public function removeProduct($id) 
     {
+        
+        $name_img = DB::table('products')->where('id', '=', $id)->select('name_img')->get();
         DB::table('products')->where('id', '=', $id)->delete();
-        return redirect('/showProducts');
+        if (file_exists('img/products/'.$name_img[0]->name_img)){
+            unlink('img/products/'.$name_img[0]->name_img); 
+        } else {
+            echo 'Файл '.$name_img[0]->name_img.' не найден !';
+        }
+    
+        return redirect('/admin/showProducts');
     }
 
     public function editProduct($id) 
@@ -110,13 +118,14 @@ class AdminController extends Controller
                                                          'description' => $request->input('description'),
                                                          'name_img' => $request->input('name_img')
                                                        ]);
-        return redirect('/showProducts');
+        return redirect('/admin/showProducts');
     }
 
     public function hideProduct($id, $bool) 
     {
         DB::table('products')->where('id', $id)->update(['show' => $bool]);
-        return redirect('/showProducts');
+        DB::table('groups_products')->where('id_prod', $id)->update(['show' => $bool]);
+        return redirect('/admin/showProducts');
     }
 
     public function addNewDiscount() 
@@ -131,13 +140,13 @@ class AdminController extends Controller
                                         'name' => $request->input('name'),
                                         'discount_price' => $request->input('discount_price')
                                       ]);
-        return redirect('/addNewDiscount');
+        return redirect('/admin/addNewDiscount');
     }
 
     public function removeDiscountToServer($id) 
     {
         DB::table('discounts')->where('id', '=', $id)->delete();
-        return redirect('/addNewDiscount');
+        return redirect('/admin/addNewDiscount');
     }
 
 
@@ -146,7 +155,9 @@ class AdminController extends Controller
                         ->leftJoin('discounts', 'discounts.id', '=', 'products.discount')
                         ->select('products.*', 'discounts.name as discount_name')
                         ->get();
-        return view('admin.setContact', ['products' => $products]);
+        $groups_products = DB::table('groups_products')->orderBy('id','desc')->get();
+
+        return view('admin.setContact', ['products' => $products, 'groups_products' => $groups_products]);
     }
 
     public function setContactToServer(Request $request){
@@ -158,7 +169,12 @@ class AdminController extends Controller
                                                 ]);
         }
 
-        return redirect('/setContact');
+        return redirect('/admin/setContact');
+    }
 
+    public function removeContact($id)
+    {
+        DB:: table('groups_products')->where('id', '=', $id)->delete();
+        return redirect('admin/setContact');
     }
 }

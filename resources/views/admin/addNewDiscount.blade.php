@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
 
-                    <form action="/addNewDiscount" method="POST">
+                    <form action="/admin/addNewDiscount" method="POST">
                         {{ csrf_field() }}
                         
                         <div class="row">
@@ -38,7 +38,7 @@
                                      <tr>
                                          <td>{{ $discount->name }}</td>
                                          <td>{{ $discount->discount_price }}</td>
-                                         <td><a href="{{ url('/removeDiscount/'.$discount->id) }}" class="btn btn-sm btn-danger">Del</a></td>
+                                         <td><a href="{{ url('/admin/removeDiscount/'.$discount->id) }}" class="btn btn-sm btn-danger">Del</a></td>
                                      </tr>
                                 @endforeach
                                 </table>

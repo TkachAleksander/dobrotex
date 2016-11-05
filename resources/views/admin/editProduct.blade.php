@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
 
-                    <form action="/editProduct/{{ $product->id }}" method="POST" >
+                    <form action="/admin/editProduct/{{ $product->id }}" method="POST" >
                         {{ csrf_field() }}
                         
                         <div class="row">
