@@ -13,8 +13,6 @@ $('.confirmDelete').on('click', function() {
 });
 
 
-
-
 /* Cart */
 $(document).ready(function() {
 	$('.buy').on('click', function(){
@@ -26,28 +24,26 @@ $(document).ready(function() {
 
 function setBasket(id_product){
 
-    // var cookies = $.cookie('basket');
+    var id_cookie = $.cookie('basket');
 
-	// if (cookies == null){
-			$.ajax({
-				type: "POST",
-				url: "/setCookie",
-				data: {id_product:id_product},
-				dataType: "JSON",
-				beforeSend: function(xhr){ 
-					xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
-				},
-				success: function(id_cookie){
-					// alert('ok');
-					$.cookie('basket',JSON.stringify(id_cookie),{ expires: 60, path:'/'});
-				}
-			});
-	//}
+	$.ajax({
+		type: "POST",
+		url: "/setCookie",
+		data: {id_product:id_product, id_cookie:id_cookie},
+		dataType: "JSON",
+		beforeSend: function(xhr){ 
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(array){
+			if (array.addCookie === true){
+				$.cookie('basket',JSON.stringify(array.id_cookie),{ expires: 60, path:'/'});
+			}
+		}
+	});
+
 }
 
 /* Multiselect */
 if ($('.multiselect').length > 0){
 	$('.multiselect').multiselect();
 }
-
-/* Cookies */
