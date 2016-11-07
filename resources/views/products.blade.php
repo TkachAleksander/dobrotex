@@ -19,7 +19,14 @@
                                     <span class="price">
                                        {{ $product->price.' грн'}}
                                     </span>
-                                    <a role="button" class="btn btn-danger pull-right buy" data-id="{{ $product->id }}" role="button"> Купить </a>
+                                    <a role="button" class="btn btn-danger pull-right buy" role="button"
+                                     data-id="{{ $product->id }}"
+                                     data-category="{{ $product->category }}"
+                                     data-name="{{ $product->name }}"
+                                     data-price="{{ $product->price }}"
+                                    > 
+                                       Купить 
+                                    </a>
                                 </p>
                             </div>
                             </a>

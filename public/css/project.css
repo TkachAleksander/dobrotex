@@ -41,10 +41,46 @@ body {
 	color: #fff;
 }
 
+
+
 .table,
 .table>tbody>tr>th {
 	border: 1px solid #ddd;
 	vertical-align: middle;
+}
+
+.img-in-cart {
+	width: 70px;
+}
+
+.table-cart > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.count-product{
+	width: 22px;
+}
+
+.minus, .plus, .delete {
+	margin: 0 5px 2px 5px;
+	width: 24px;
+	display: inline;
+	border: 1px solid #dfdfdf;
+	padding: 4px;
+	transition: border-color 0.5s ease 0s;
+	transition: box-shadow 0.1s ease 0s;
+	display: inline-block
+}
+.delete{
+	margin: 0 0 2px 12px;
+	padding: 5px;
+}
+.minus:hover,.plus:hover,.delete:hover {
+	cursor: pointer;
+}
+.minus:active,.plus:active,.delete:active {
+	border-color: #696969;
+	box-shadow: 0 0 5px #000;
 }
 
 .fa-btn {

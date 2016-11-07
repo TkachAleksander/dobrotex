@@ -28,3 +28,8 @@ Route::get('/admin/removeContact/{id}', 'AdminController@removeContact');
 
 /* Cart */
 Route::post('/setCookie', 'CartController@setCookie');
+Route::post('/showCart', 'CartController@showCart');
+
+Route::post('/addNewIdInBasket', 'CartController@addNewIdInBasket');
+Route::post('/addToIdInBasket', 'CartController@addToIdInBasket');
+Route::post('/showBasket', 'CartController@showBasket');
