@@ -14,20 +14,19 @@
                                 <img style="height:260px;" src="{{ url('img/products/'.$product->name_img) }}" alt="{{ $product->category.' '. $product->name }}" title="{{ $product->category.' '. $product->name }}">
                             </div>
                             <div class="caption Lobster">
-                                <p>{{ $product->category.' '. $product->name }} <span class="pull-right">{{ $product->size }}</span> </p>
+                                <p class="small-description">{{ $product->category.' '. $product->name }} <span class="pull-right">{{ $product->size }}</span> </p>
                                 <p>
                                     <span class="price">
                                        {{ $product->price.' грн'}}
                                     </span>
                                     <a role="button" class="btn btn-danger pull-right buy" role="button"
                                      data-id="{{ $product->id }}"
-                                     data-category="{{ $product->category }}"
-                                     data-name="{{ $product->name }}"
-                                     data-price="{{ $product->price }}"
                                     > 
                                        Купить 
                                     </a>
+                                <div class="id-product">{{ $product->id }}</div>
                                 </p>
+
                             </div>
                             </a>
                         </div>

@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <div class="cart" data-toggle="modal" data-target="#cart">
-                        <p class="text-center">0.00<p>
+                        <p class="text-center summa-cart"><p>
                     </div>
                 </li>
             </ul>

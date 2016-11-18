@@ -19,7 +19,7 @@
 <body>
     <header>
         @include('header.header')
-        @include('header.cart')
+        @include('header.modals')
     </header>
 
         @yield('content')

@@ -4,7 +4,7 @@ Route::auth();
 Route::get('/admin', 'AdminController@index');
 
 Route::get('/', 'DiscountController@index');
-Route::get('{category}', 'ProductsController@getProducts');
+Route::get('/{category}', 'ProductsController@getProducts');
 Route::get('/more/{id}', 'ProductsController@more');
 
 /* Admin */
@@ -30,6 +30,9 @@ Route::get('/admin/removeContact/{id}', 'AdminController@removeContact');
 Route::post('/setCookie', 'CartController@setCookie');
 Route::post('/showCart', 'CartController@showCart');
 
-Route::post('/addNewIdInBasket', 'CartController@addNewIdInBasket');
-Route::post('/addToIdInBasket', 'CartController@addToIdInBasket');
-Route::post('/showBasket', 'CartController@showBasket');
+Route::post('/cartMinus', 'CartController@cartMinus');
+Route::post('/cartPlus', 'CartController@cartPlus');
+Route::post('/cartDelete', 'CartController@cartDelete');
+Route::post('/updateSum', 'CartController@updateSum');
+
+/* Checkout */

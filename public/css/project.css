@@ -7,7 +7,6 @@ body {
 }
 
 .thumbnail {
-	/*min-height: 380px;*/
 	max-height: 380px;
 	overflow:hidden;
 }
@@ -37,8 +36,27 @@ body {
 	color: #000;
 }
 
+.thumbnail .caption {
+    padding-bottom: 0px;
+}
+
+.thumbinal-discount {
+	max-height: 400px;
+	overflow:hidden;
+}
+
+.small-description {
+	line-height: 1;
+    height: 28px;
+}
+
 .caption .buy {
 	color: #fff;
+}
+
+.id-product {
+	text-align: right;
+	color: #8b8b8b;
 }
 
 
@@ -57,11 +75,15 @@ body {
     vertical-align: middle;
 }
 
+.name-product-cart {
+	max-width: 150px;
+}
+
 .count-product{
 	width: 22px;
 }
 
-.minus, .plus, .delete {
+.minus-cart, .plus-cart, .delete-cart {
 	margin: 0 5px 2px 5px;
 	width: 24px;
 	display: inline;
@@ -71,16 +93,22 @@ body {
 	transition: box-shadow 0.1s ease 0s;
 	display: inline-block
 }
-.delete{
+.delete-cart{
 	margin: 0 0 2px 12px;
 	padding: 5px;
 }
-.minus:hover,.plus:hover,.delete:hover {
+.minus-cart:hover,.plus-cart:hover,.delete-cart:hover {
 	cursor: pointer;
 }
-.minus:active,.plus:active,.delete:active {
+.minus-cart:active,.plus-cart:active,.delete-cart:active {
 	border-color: #696969;
 	box-shadow: 0 0 5px #000;
+}
+
+@media (min-width: 768px){
+	.modal-dialog-checkout {
+		width:500px;
+	}
 }
 
 .fa-btn {
@@ -107,7 +135,7 @@ body {
 
 .navbar-brand {
 	font-size: 3.5em;
-	margin: 5px;
+	padding: 21px 0px 0px 40px;
 }
 
 .navbar-default {
@@ -177,19 +205,19 @@ body {
 }
 
 .cart {
-	height: 60px;
-	width: 60px;
-	margin-top: 10px;
-    margin-right: 10px;
+    height: 50px;
+    width: 80px;
+    margin-top: 14px;
+    margin-right: 14px;
     background-color: rgba(255, 0, 0, 0.46);
-    border-radius: 50px;
-    border: 1px solid #fff;
+    border-radius: 10px;
+    border: 2px solid #fff;
 }
 
 .cart > p {
-	padding: 20px 0;
+	padding: 13px 0;
 	color: #fff;
-	font-size: bold;
+	text-shadow: 0px 0px 5px #fff;
 }
 
 .cart > p:hover {
@@ -275,5 +303,13 @@ footer {
 	min-height: 100px;
 	width: 100%;
 	background-color: rgba(80, 114, 153, 0.63);
+	display: table;
+}
+
+.copirate {
+	display: table-cell;
+	vertical-align: middle;
+	color: #fff;
+	text-shadow: 0px 0px 5px #000;
 }
 

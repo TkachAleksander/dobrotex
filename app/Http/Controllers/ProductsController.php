@@ -72,7 +72,9 @@ class ProductsController extends Controller
         {
             $products = DB::table('products')
                        ->where('category', '=', 'Подушка')
-                       ->where('show', '=', 1)->get();
+                       ->where('show', '=', 1)
+                       ->where('discount', '=', 0)
+                       ->get();
 
             return view ('products', ['title' => 'Подушки',
                                       'top_menu' => $top_menu,
@@ -84,7 +86,8 @@ class ProductsController extends Controller
         {
             $products = DB::table('products')
                         ->where('category', '=', 'Одеяло')
-                        ->where('show', '=', 1)->get();
+                        ->where('discount', '=', 0)
+                        ->get();
 
             return view ('products', ['title' => 'Одеяла', 
                                       'top_menu' => $top_menu, 
