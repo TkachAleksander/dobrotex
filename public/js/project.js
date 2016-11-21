@@ -80,7 +80,7 @@ function showCart(){
 				$('#th-cart').after('<tr style="background-color: #f5f5f5;" id="tr'+arrayProducts[key].id+'" class="tr-cart">'+
 										'<td class="name-product-cart">'+ arrayProducts[key].category +' '+ arrayProducts[key].name +'</td>'+
 										'<td class="text-center">'+
-											'<img class="img-in-cart img-responsive" src="img/products/'+ arrayProducts[key].name_img +'">'+
+											'<img class="img-in-cart img-responsive" src="../img/products/'+ arrayProducts[key].name_img +'">'+
 										'</td>'+
 										'<td class="text-center">'+ arrayProducts[key].id +'</td>'+
 										'<td class="text-center">'+ arrayProducts[key].size +' см</td>'+

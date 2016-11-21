@@ -46,20 +46,26 @@
                             <p class="pull-right">Код продукта: {{ $product[0]->id }}</p>
                         </div>
                         <div class="col-sm-10">
-                            @foreach($sizes as $key => $size)
-                                <a href="{{ url('more/'.$size->id)}}">
-                                <div class="block-size">
-                                    <div class="text-size">{{ $size->size }}</div>
-                                </div>
-                                </a>
-                            @endforeach
-                            <button class="btn btn-md btn-success pull-right buy-more"> Купить </button>
+                            <a role="button" class="btn btn-danger pull-right buy" role="button"
+                            data-id="{{ $product[0]->id }}"
+                            > 
+                            Купить 
+                            </a>
                         </div>
                     </div>
 
                 </div>
                 <div class="row">
-                    <div class="col-sm-11" style="padding-top: 25px;">
+                    <div class="col-sm-11" style="padding-top: 15px;">
+                        @foreach($sizes as $key => $size)
+                            <a href="{{ url('more/'.$size->id)}}">
+                            <div class="block-size">
+                                <div class="text-size">{{ $size->size }}</div>
+                            </div>
+                            </a>
+                        @endforeach
+                    </div>
+                    <div class="col-sm-11" style="padding-top: 15px;">
                         <p class="description" align="justify">
                             {{ $product[0]->description }}
                         </p>
