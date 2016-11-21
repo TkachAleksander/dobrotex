@@ -94,7 +94,6 @@ function showCart(){
 									);
 			});
 			updateSum(id_cookie)
-
 		}
 	});
 
@@ -116,6 +115,10 @@ function updateSum(id_cookie){
 				sum += parseFloat(arrayProducts[key].price) * parseFloat(arrayProducts[key].quantity);
 			console.log(sum);});
 			$('.summa-cart').text(sum.toFixed(2));
+			if(sum == 0)
+				$('.btn-checkout').css('display','none');
+			else 
+				$('.btn-checkout').css('display','');
 		}
 	});
 }

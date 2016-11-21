@@ -27,7 +27,7 @@
             
             <div class="modal-footer Lobster">
                 <button type="button" class="btn btn-default" data-dismiss="modal"> Закрыть </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#checkout"> Оформить заказ </button>
+                <button type="button" class="btn btn-primary btn-checkout" data-dismiss="modal" data-toggle="modal" data-target="#checkout"> Оформить заказ </button>
             </div>
         </div>
     
