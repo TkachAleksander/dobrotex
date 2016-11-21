@@ -162,13 +162,23 @@ class AdminController extends Controller
 
     public function setContactToServer(Request $request){
         $all = $request->all();
+        
         foreach ($all['id_products'] as $key => $value) {
+            $show1 = DB::table('products')->where('id', '=', $value)->pluck('show');
+            $show2 = DB::table('products')->where('id', '=', $request->input('id_group'))->pluck('show');
+            // echo $show1[0].",".$show2[0]; dd();
+            if ($show1[0] == '0' || $show2[0] == '0'){
+                $show = 0;
+            } else {
+                $show = 1;
+            }
             DB::table('groups_products')->insert([
                                                 'id_group' => $request->input('id_group'),
-                                                'id_prod' => $value
+                                                'id_prod' => $value,
+                                                'show' => $show
                                                 ]);
         }
-
+     // dd($all);
         return redirect('/admin/setContact');
     }
 

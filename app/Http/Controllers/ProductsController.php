@@ -26,10 +26,11 @@ class ProductsController extends Controller
                       ->where('show', '=', 1)                      
                       ->select('id_prod')
                       ->get();
-    
+
         if(count($id_prods) == 0){
             $id_prods = DB::table('groups_products')
                           ->where('id_prod', '=', $id)
+                          ->where('show', '=', 1) 
                           ->select('id_group')
                           ->get();
     
@@ -43,7 +44,6 @@ class ProductsController extends Controller
                 array_push($sizes, $value[0]); 
             }
         } else {
-    
             $sizes=array();
             foreach ($id_prods as $id_prod) {
                 $value = DB::table('products')
