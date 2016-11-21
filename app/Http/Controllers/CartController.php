@@ -51,8 +51,9 @@ class CartController extends Controller
 
     public function updateSum(Request $request){
         $arrayProducts = DB::table('cart')->join('products as p', 'p.id', '=', 'cart.id_products')
+                                          ->leftJoin('discounts as d', 'd.id', '=', 'p.discount')
                                           ->where('id_cookie', '=', $request->input('id_cookie'))
-                                          ->select('p.price', 'cart.quantity')
+                                          ->select('p.price', 'cart.quantity', 'd.id', 'd.discount_price')
                                           ->get();
         return response()->json($arrayProducts);
     }

@@ -60,19 +60,25 @@
 
                             <label> Адрес получателя </label>
 
-                            <p><input  type="text" name="delivery" class="form-control input-delivery" placeholder="Улица, дом, квартира"></p>
-
-                            
-
-                             
-
+                            <p>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Улица">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Дом">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Квартира"></p>
+                                </div>
+                            </div>
                     </form>
                 </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cart"> Корзина </button>
-                <button type="button" class="btn btn-success"> Отправить </button>
+                <button type="button" class="btn btn-success"> Заказать </button>
             </div>
         </div>
     </div>
