@@ -1,3 +1,4 @@
+<!-- Корзина -->
 <div class="modal fade"  id="cart" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
     <div class="modal-dialog Lobcter" role="document">
         
@@ -34,6 +35,7 @@
     </div>
 </div>
 
+<!-- Оформить заказ -->
 <div class="modal fade" id="checkout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-checkout" role="document">
         <div class="modal-content Lobster">

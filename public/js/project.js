@@ -113,7 +113,7 @@ function updateSum(id_cookie){
 			arrayProducts.forEach(function(product, key, arrayProducts){
 				arrayProducts[key].price = (arrayProducts[key].discount == 0) ? arrayProducts[key].price : parseFloat($price = arrayProducts[key].price - arrayProducts[key].discount_price).toFixed(2);
 				sum += parseFloat(arrayProducts[key].price) * parseFloat(arrayProducts[key].quantity);
-			console.log(sum);});
+			});
 			$('.summa-cart').text(sum.toFixed(2));
 			if(sum == 0)
 				$('.btn-checkout').css('display','none');
