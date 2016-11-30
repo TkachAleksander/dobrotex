@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use DB;
 
@@ -27,23 +26,23 @@ class ProductsController extends Controller
                       ->select('id_prod')
                       ->get();
 
-        if(count($id_prods) == 0){
-            $id_prods = DB::table('groups_products')
-                          ->where('id_prod', '=', $id)
-                          ->where('show', '=', 1) 
-                          ->select('id_group')
-                          ->get();
+        // if(count($id_prods) == 0){
+        //     $id_prods = DB::table('groups_products')
+        //                   ->where('id_prod', '=', $id)
+        //                   ->where('show', '=', 1) 
+        //                   ->select('id_group')
+        //                   ->get();
     
-            $sizes=array();
-            foreach ($id_prods as $id_prod) {
-                $value = DB::table('products')
-                           ->where('id', '=', $id_prod->id_group)
-                           ->select('size','id')
-                           ->get(); 
+        //     $sizes=array();
+        //     foreach ($id_prods as $id_prod) {
+        //         $value = DB::table('products')
+        //                    ->where('id', '=', $id_prod->id_group)
+        //                    ->select('size','id')
+        //                    ->get(); 
         
-                array_push($sizes, $value[0]); 
-            }
-        } else {
+        //         array_push($sizes, $value[0]); 
+        //     }
+        // } else {
             $sizes=array();
             foreach ($id_prods as $id_prod) {
                 $value = DB::table('products')
@@ -52,7 +51,7 @@ class ProductsController extends Controller
                            ->get(); 
         
                 array_push($sizes, $value[0]); 
-            }
+            // }
     }
     
 

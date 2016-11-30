@@ -5,7 +5,14 @@
 
             <div class="col-sm-offset-1 col-sm-10 content">
                 <div class="row">
-
+                    @if(isset($_COOKIE['cartInfo']))
+                        <div class="alert alert-success fade in Lobster" style="margin-bottom: 35px; font-size: 18px;">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" class="alert-close">&times;</span>
+                            </button>
+                            <p class="text-center"> Ваш заказ принят, в ближайшее время с Вами свяжется наш оператор. </p>
+                        </div>     
+                    @endif
                     @foreach ($discount_products as $d_product)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail thumbinal-discount">
@@ -15,7 +22,6 @@
                             </div>
                             <div class="caption Lobster">
                                 <p class="small-description">{{ $d_product->category.' '. $d_product->name }} <span class="pull-right">{{ $d_product->size }}</span></p>
-
                                 <span class="old-price">
                                     {{ $d_product->price }}
                                 </span>

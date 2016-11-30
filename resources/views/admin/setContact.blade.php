@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 <div class="container">
     <div class="row">
 
@@ -8,23 +8,39 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Удалить связь 
-                    <span class="pull-right">
-                    </span>
                 </div>
-
                 <div class="panel-body">
-                    <table class="table table-bordered">
-                    @foreach($groups_products as $group_products)
-                        <tr>
-                            <td>{{ $group_products->id_group }}</td>
-                            <td>{{ $group_products->id_prod }}</td>
-                            <td><a href="{{ url('/admin/removeContact/'. $group_products->id) }}" class="btn btn-sm btn-danger btn-padding"> del </a></td>
-                        </tr>
-                    @endforeach
-                    </table>
+                    <div onclick="tree_toggle(arguments[0])">
 
+                    @if ($contents != null)
+                        @foreach($contents as $key => $content) 
+                        <ul class="Container">
+                          <li class="Node IsRoot ExpandOpen">
+                            <div class="Expand"></div>
+                            <!-- <input type="checkbox" name="roots[{{ $key }}]" value="{{ $key }}"/> -->
+                            <div class="Content">
+                            <button type="button" class="btn btn-sm btn-padding-5 btn-danger removeRootGroup confirmDelete" data-id-root="{{ $key }}">х</button>
+                            {{ "[".$key."]".$is_roots[$key]->category." ".$is_roots[$key]->name}}
+                            </div>
+                            <ul class="Container">
+                            @foreach($content as $child)
+                                <li class="Node ExpandLeaf IsLast">
+                                  <div class="Expand"></div>
+                                  <!-- <input type="checkbox" name="childs[{{ $child->id_prod }}]" value="" /> -->
+                                  <div class="Content">
+                                    <button type="button" class="btn btn-sm btn-padding-5 btn-warning removeChildGroup confirmDelete" data-id-root="{{ $key }}" data-id-child="{{ $child->id_prod }}">х</button>
+                                  {{ "[".$child->id_prod."] ".$child->category." ".$child->name }}
+                                  </div>
+                                </li>
+                            @endforeach
+                            </ul>
+                          </li>
+                        </ul>
+                        @endforeach
+                    @endif
+                    
+                    </div>
                 </div>
-
             </div>        
         </div>
 

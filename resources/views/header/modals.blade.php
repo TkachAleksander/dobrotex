@@ -39,49 +39,48 @@
 <div class="modal fade" id="checkout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-checkout" role="document">
         <div class="modal-content Lobster">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"> Оформить заказ </h4>
-            </div>
-            <div class="modal-body">
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-10">
-                    <form role="form" method="POST" action="" >
+
+            <form role="form" method="POST" action="/orders">
+                {{ csrf_field() }}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> Оформить заказ </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10">
                             <div class="form-group">
                                 <label> Как к Вам обращаться ? </label>
-                                <p><input required type="text" name="f_name" class="form-control inputCheckoutName" placeholder="Имя" onblur="inputCheckoutName()"></p>
-                                <p class="checkoutNameError"></p>
-                                <input required type="text" name="l_name" class="form-control inputCheckoutLName" placeholder="Фамилия" onblur="inputCheckoutLName()">
-                                <p class="checkoutLNameError"></p>
+                                <input required id="l_name" type="text" name="l_name" class="form-control" placeholder="Фамилия" maxlength="30"><div class="error-box"></div><p></p>
+                                <input required id="f_name" type="text" name="f_name" class="form-control" placeholder="Имя" maxlength="30"><div class="error-box"></div><p></p>
+                                <input required id="s_name" type="text" name="s_name" class="form-control" placeholder="Отчество" maxlength="30"><div class="error-box"></div><p></p>
+                            
                             </div>
+
                             <div class="form-group">
                                 <label> Номер телефона для подтвержения заказа </label>
-                                <input required type="text" name="phone" class="form-control inputPhone" placeholder="0951177733" onblur="inputPhone()">
+                                <input required id="phone" type="text" name="phone" class="form-control" placeholder="0951177733" maxlength="10"><div class="error-box"></div><p></p>
                                 <p class="checkoutPhoneError"></p>
                             </div>
 
-                            <label> Адрес получателя </label>
-
+                            <label> Способ доставки </label>
                             <p>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Улица">
-                                </div>
-                                <div class="col-sm-3">
-                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Дом">
-                                </div>
-                                <div class="col-sm-4">
-                                    <input  type="text" name="delivery" class="form-control input-delivery" placeholder="Квартира"></p>
-                                </div>
+                            <label class="radio-inline"><input id="input-np" class="input-delivery" type="radio" name="delivery"> Новая Почта </label> 
+                            <label class="radio-inline"><input id="input-issuing-point" class="input-delivery active" type="radio" name="delivery" checked="checked"> Из точки выдачи </label>
+                            </p>
+                            <div id="div-delivery">
+                                <input type="text" name="address" class="form-control" placeholder="Город Сумы, ул.Харьковская, д.54" required disabled>
                             </div>
-                    </form>
+                    
+                        </div>
+                    </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cart"> Корзина </button>
+                    <button type="submit" class="btn btn-success"> Заказать </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cart"> Корзина </button>
-                <button type="button" class="btn btn-success"> Заказать </button>
-            </div>
+            </form>
+
         </div>
     </div>
 </div>

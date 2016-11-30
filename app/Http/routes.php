@@ -24,7 +24,14 @@ Route::get('/admin/removeDiscount/{id}', 'AdminController@removeDiscountToServer
 
 Route::get('/admin/setContact', 'AdminController@setContact');
 Route::post('/admin/setContact', 'AdminController@setContactToServer');
-Route::get('/admin/removeContact/{id}', 'AdminController@removeContact');
+Route::post('/admin/removeContact', 'AdminController@removeContact');
+
+Route::post('/removeRootGroup', 'AdminController@removeRootGroup');
+Route::post('/removeChildGroup', 'AdminController@removeChildGroup');
+
+Route::get('/admin/showOrders', 'AdminController@showOrders');
+Route::post('/showMoreOrder', 'AdminController@showMoreOrder');
+
 
 /* Cart */
 Route::post('/setCookie', 'CartController@setCookie');
@@ -36,3 +43,4 @@ Route::post('/cartDelete', 'CartController@cartDelete');
 Route::post('/updateSum', 'CartController@updateSum');
 
 /* Checkout */
+Route::post('/orders', 'OrdersController@orders');

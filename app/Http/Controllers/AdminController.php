@@ -151,13 +151,36 @@ class AdminController extends Controller
 
 
     public function setContact(){
+        // Вывод списка продуктов
         $products = DB::table('products')
                         ->leftJoin('discounts', 'discounts.id', '=', 'products.discount')
                         ->select('products.*', 'discounts.name as discount_name')
                         ->get();
-        $groups_products = DB::table('groups_products')->orderBy('id','desc')->get();
+        // Вывод корней связей
+        $IsRoots = DB::table('groups_products as gp')->join('products as p', 'p.id', '=', 'gp.id_group')
+                                                     ->select('gp.id_group','p.category', 'p.name')
+                                                     ->orderBy('gp.id_group','asc')
+                                                     ->distinct()->get();
+        // Изменяем key корня связи на id элемента
+        foreach ($IsRoots as $old_key => $value) {
+            $new_key = $value->id_group;
+            $IsRoots[$new_key] = $IsRoots[$old_key];
+            unset($IsRoots[$old_key]);
+        }
+        // Если есть корневые элементы выводим их 
+        if($IsRoots != null){
+            foreach ($IsRoots as $key => $IsRoot) {
+                $IsRoot = $IsRoot->id_group;  
+                $contents[$IsRoot] = DB::table('groups_products as gp')->join('products as p', 'p.id', '=', 'gp.id_prod')
+                                                                       ->where('id_group', '=', $IsRoot)
+                                                                       ->select('gp.id_prod','p.category','p.name')->get();
+                                                                      
+            }
+        } else {
+            $contents = null;
+        }
 
-        return view('admin.setContact', ['products' => $products, 'groups_products' => $groups_products]);
+        return view('admin.setContact', ['products' => $products, 'contents' => $contents, 'is_roots' => $IsRoots]);
     }
 
     public function setContactToServer(Request $request){
@@ -166,7 +189,6 @@ class AdminController extends Controller
         foreach ($all['id_products'] as $key => $value) {
             $show1 = DB::table('products')->where('id', '=', $value)->pluck('show');
             $show2 = DB::table('products')->where('id', '=', $request->input('id_group'))->pluck('show');
-            // echo $show1[0].",".$show2[0]; dd();
             if ($show1[0] == '0' || $show2[0] == '0'){
                 $show = 0;
             } else {
@@ -178,13 +200,54 @@ class AdminController extends Controller
                                                 'show' => $show
                                                 ]);
         }
-     // dd($all);
         return redirect('/admin/setContact');
     }
 
-    public function removeContact($id)
+    public function removeContact(Request $request)
+    {   
+        if($request->input('roots') != null){
+            foreach ($request->input('roots') as $key => $value) {
+                // DB::table('groups_products')->where('id_group','=',$request->input('roots')[$key])->delete();
+            }
+            
+        }
+        if($request->input('contents') != null){dd($request->input('contents'));
+            foreach ($request->input('roots') as $key => $value) {
+                // DB::table('groups_products')->where('id_group','=',$request->input('roots')[$key])->delete();
+            }
+        }
+        return view('admin/setContact');
+    }
+
+    public function removeRootGroup(Request $request)
     {
-        DB:: table('groups_products')->where('id', '=', $id)->delete();
-        return redirect('admin/setContact');
+        DB::table('groups_products')->where('id_group','=', $request->input('id_root'))->delete();
+
+        return response()->json(" ");
+    }
+
+    public function removeChildGroup(Request $request)
+    {
+        DB::table('groups_products')->where('id_group','=', $request->input('id_root'))
+                                    ->where('id_prod','=', $request->input('id_child'))->delete();
+
+        return response()->json(" ");
+    }
+
+    public function showOrders()
+    {
+        $orders = DB::table('orders as o')->get();
+
+        return view('admin.showOrders', ['orders'=>$orders]);
+    }
+
+    public function showMoreOrder(Request $request)
+    {
+        $moreOrder = DB::table('orders_info as oi')->where('oi.id_orders','=', $request->input('id_order'))
+                                                   ->join('products as p', 'p.id','=','oi.id_products')
+                                                   ->leftJoin('discounts as d', 'd.id','=','p.discount')
+                                                   ->select('oi.*','p.*','p.name as name_product','d.*','d.name as discount_name')
+                                                   ->get();
+        return response()->json($moreOrder);
     }
 }

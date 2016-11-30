@@ -19,10 +19,6 @@ if ($('.multiselect').length > 0){
 	$('.multiselect').multiselect();
 }
 
-
-/* Cart */
-// Вывод суммы корзины при загрузке страницы 
-showCart();
 // Клик по корзине
 $('.cart').on('click', function(){
 	showCart();
@@ -177,3 +173,210 @@ function cartDelete(id_product){
 	});
 }
 
+
+// переключение Delivery
+$('#input-np').on('click',function(){
+	$delivery = $('#div-delivery');
+	$delivery.empty().append('<input type="text" name="address" class="form-control" placeholder="Город получателя, номер отделения" required>'+
+		                     '<p> Стоимость доставки: 2% от суммы заказа </p>');
+});
+
+$('#input-issuing-point').on('click',function(){
+	$delivery = $('#div-delivery');
+	$delivery.empty().append('<input type="text" name="address" class="form-control" placeholder="Город Сумы, ул.Харьковская, д.54" required disabled>');
+});
+
+
+// Проверка ввода значений
+$('input#f_name, input#l_name, input#s_name, input#phone').unbind().blur( function(){
+            
+            var id = $(this).attr('id');
+            var val = $(this).val();
+            var textError = '&bull; значение должно составлять не менее двух символов<br> &bull; используйте только русские буквы';
+           
+           switch(id)
+           {
+                case 'f_name':
+                    var rv_name = /^[а-яА-Яб,є,ї,і]+$/; 
+
+                    if(val.length > 2 && val != '' && rv_name.test(val))
+                    {
+                       $(this).addClass('not_error');
+                       $(this).next('.error-box').text('Принято')
+                                                 .css('color','green')
+                                                 .animate({'paddingLeft':'10px'},400)
+                                                 .animate({'paddingLeft':'5px'},400);
+                    } else {
+                       $(this).removeClass('not_error').addClass('error');
+                       $(this).next('.error-box').html(textError)
+                                                  .css('color','red')
+                                                  .animate({'paddingLeft':'10px'},400)
+                                                  .animate({'paddingLeft':'5px'},400);
+                    }
+                break;
+                case 'l_name':
+                    var rv_name = /^[а-яА-Яб,є,ї,і]+$/; 
+
+                    if(val.length > 2 && val != '' && rv_name.test(val))
+                    {
+                       $(this).addClass('not_error');
+                       $(this).next('.error-box').text('Принято')
+                                                 .css('color','green')
+                                                 .animate({'paddingLeft':'10px'},400)
+                                                 .animate({'paddingLeft':'5px'},400);
+                    } else {
+                       $(this).removeClass('not_error').addClass('error');
+                       $(this).next('.error-box').html(textError)
+                                                  .css('color','red')
+                                                  .animate({'paddingLeft':'10px'},400)
+                                                  .animate({'paddingLeft':'5px'},400);
+
+                    }
+                break;
+                case 's_name':
+                    var rv_name = /^[а-яА-Яб,є,ї,і]+$/; 
+
+                    if(val.length > 2 && val != '' && rv_name.test(val))
+                    {
+                       $(this).addClass('not_error');
+                       $(this).next('.error-box').text('Принято')
+                                                 .css('color','green')
+                                                 .animate({'paddingLeft':'10px'},400)
+                                                 .animate({'paddingLeft':'5px'},400);
+                    } else {
+                       $(this).removeClass('not_error').addClass('error');
+                       $(this).next('.error-box').html(textError)
+                                                  .css('color','red')
+                                                  .animate({'paddingLeft':'10px'},400)
+                                                  .animate({'paddingLeft':'5px'},400);
+                    }
+                break;
+                case 'phone':
+                    var rv_name = /^[0-9]{10}$/; 
+
+                    if(val.length > 2 && val != '' && rv_name.test(val))
+                    {
+                       $(this).addClass('not_error');
+                       $(this).next('.error-box').text('Принято')
+                                                 .css('color','green')
+                                                 .animate({'paddingLeft':'10px'},400)
+                                                 .animate({'paddingLeft':'5px'},400);
+                    } else {
+                       $(this).removeClass('not_error').addClass('error');
+                       $(this).next('.error-box').html('&bull; поле "Телефон" обязательно для заполнения')
+                                                  .css('color','red')
+                                                  .animate({'paddingLeft':'10px'},400)
+                                                  .animate({'paddingLeft':'5px'},400);
+                    }
+                break;
+           }         
+
+});
+
+// three
+function tree_toggle(event) {
+    event = event || window.event
+    var clickedElem = event.target || event.srcElement
+
+    if (!hasClass(clickedElem, 'Expand')) {
+        return // клик не там
+    }
+
+    // Node, на который кликнули
+    var node = clickedElem.parentNode
+    if (hasClass(node, 'ExpandLeaf')) {
+        return // клик на листе
+    }
+
+    // определить новый класс для узла
+    var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen'
+    // заменить текущий класс на newClass
+    // регексп находит отдельно стоящий open|close и меняет на newClass
+    var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
+    node.className = node.className.replace(re, '$1'+newClass+'$3')
+}
+
+
+function hasClass(elem, className) {
+    return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className)
+}
+
+
+$('.alert-close').on('click', function(){
+	$.cookie('cartInfo','',{ expires: -1, path:'/'});
+});
+
+$('.removeRootGroup').on('click', function(){
+
+	var id_root = $(this).data('idRoot');
+	$.ajax({
+		type: "POST",
+		url: "/removeRootGroup",
+		data: {id_root:id_root},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(){
+			location.reload();	
+		}
+	});
+});
+
+
+$('.removeChildGroup').on('click', function(){
+
+	var id_root = $(this).data('idRoot');
+	var id_child = $(this).data('idChild');
+	$.ajax({
+		type: "POST",
+		url: "/removeChildGroup",
+		data: {id_root:id_root, id_child:id_child},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(){
+			location.reload();	
+		}
+	});
+});
+
+$('.btn-more-order').on('click', function(){
+
+	var id_order = $(this).data('idOrder');
+	$.ajax({
+		type: "POST",
+		url: "/showMoreOrder",
+		data: {id_order:id_order},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(moreOrder){
+
+			var sum = 0;
+			$moreOrder = $('#tr-moreOrder');
+			$('.new').empty();
+			moreOrder.forEach( function(value, key, moreOrder){
+				moreOrder[key].price = (moreOrder[key].discount == 0) ? moreOrder[key].price : parseFloat($price = moreOrder[key].price - moreOrder[key].discount_price).toFixed(2);
+				sum += parseFloat(moreOrder[key].price) * parseFloat(moreOrder[key].quantity); 
+				$moreOrder.after('<tr class="new">'+
+					             '<td>'+ value.id_products +'</td>'+
+					             '<td><a href="http://dobrotex/more/'+value.id_products+'" target="_blank">'+ value.category+' '+value.name_product+'</a></td>'+
+					             '<td>'+ value.set_of_characteristics +'</td>'+
+					             '<td class="text-center">'+ value.quantity +'</td>'+
+					             '<td>'+ moreOrder[key].price +'</td>'+
+					             '</tr>');
+			});
+			$('#sum-more-order').html(sum.toFixed(2));
+
+		}
+	});
+});
+
+
+
+/* Cart */
+// Вывод суммы корзины при загрузке страницы 
+updateSum($.cookie('cart'));

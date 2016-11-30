@@ -90,7 +90,7 @@ class CartController extends Controller
 
     }
 
-        public function cartDelete(Request $request){
+    public function cartDelete(Request $request){
         DB::table('cart')->where('id_products', '=', $request->input('id_product'))
                          ->where('id_cookie', '=', $request->input('id_cookie'))
                          ->delete();
@@ -98,4 +98,5 @@ class CartController extends Controller
         return response()->json("ok");
 
     }
-}    	
+
+}	

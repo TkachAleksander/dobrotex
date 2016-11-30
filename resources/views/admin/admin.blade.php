@@ -13,8 +13,9 @@
                         <li><a href="{{ url('/admin/addNewDiscount') }}"> Добавить скидку </a></li>
                         <li><a href="{{ url('/admin/showProducts') }}"> Управление товарами </a></li>
                         <li><a href="{{ url('/admin/setContact') }}"> Связь товаров </a></li>
+                        <li><a href="{{ url('/admin/showOrders') }}"> Список заказов </a></li>
 
-                        <li><a href="{{ url('/register') }}">Регистрация</a></li>
+                        <!-- <li><a href="{{ url('/register') }}">Регистрация</a></li> -->
 
                     </ul>
                 </div>
