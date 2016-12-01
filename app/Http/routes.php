@@ -32,6 +32,8 @@ Route::post('/removeChildGroup', 'AdminController@removeChildGroup');
 Route::get('/admin/showOrders', 'AdminController@showOrders');
 Route::post('/showMoreOrder', 'AdminController@showMoreOrder');
 
+Route::post('/setDoneOrder', 'AdminController@setDoneOrder');
+Route::post('/setNewOrder', 'AdminController@setNewOrder');
 
 /* Cart */
 Route::post('/setCookie', 'CartController@setCookie');

@@ -1,9 +1,38 @@
 .btn-padding {
 	padding: 0px 10px;
 }
-.btn-padding-5{
+.btn-padding-5 {
     padding: 0px 5px;
 }
+
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+
+.status-done:hover,
+.status-new:hover {
+    background-color: #dfdfdf;
+    cursor: pointer;
+}
+
+.block-menu{
+    padding: 10px;
+    display:inline-block;
+    border: 1px solid #ddd; 
+}
+
+.block-menu:hover {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.block-menu:hover a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
 
 
 /* tree */
@@ -18,9 +47,9 @@
 
 /* indent for all tree children excepts root */
 .Node {
-    background-image : url(../img/tree/i.gif);
-    background-position : top left;
-    background-repeat : repeat-y;
+    background-image: url(../img/tree/i.gif);
+    background-position: top left;
+    background-repeat: repeat-y;
     margin-left: 18px;
     zoom: 1;
 }

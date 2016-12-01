@@ -356,21 +356,63 @@ $('.btn-more-order').on('click', function(){
 		success: function(moreOrder){
 
 			var sum = 0;
+			var profit = 0;
 			$moreOrder = $('#tr-moreOrder');
 			$('.new').empty();
+
 			moreOrder.forEach( function(value, key, moreOrder){
 				moreOrder[key].price = (moreOrder[key].discount == 0) ? moreOrder[key].price : parseFloat($price = moreOrder[key].price - moreOrder[key].discount_price).toFixed(2);
-				sum += parseFloat(moreOrder[key].price) * parseFloat(moreOrder[key].quantity); 
+				sum += parseFloat(moreOrder[key].price) * parseFloat(moreOrder[key].quantity);
+
+				moreOrder[key].cost_price = parseFloat(moreOrder[key].price) - parseFloat(moreOrder[key].cost_price)
+				profit += moreOrder[key].cost_price;
 				$moreOrder.after('<tr class="new">'+
 					             '<td>'+ value.id_products +'</td>'+
 					             '<td><a href="http://dobrotex/more/'+value.id_products+'" target="_blank">'+ value.category+' '+value.name_product+'</a></td>'+
 					             '<td>'+ value.set_of_characteristics +'</td>'+
 					             '<td class="text-center">'+ value.quantity +'</td>'+
 					             '<td>'+ moreOrder[key].price +'</td>'+
+					             '<td>'+ moreOrder[key].cost_price.toFixed(2) +'</td>'+
 					             '</tr>');
 			});
 			$('#sum-more-order').html(sum.toFixed(2));
+			$('#sum-profit').html(profit.toFixed(2));
 
+		}
+	});
+});
+
+
+$('.status-new').on('click', function(){
+	var id_order = $(this).data('idOrder');
+
+	$.ajax({
+		type: "POST",
+		url: "/setDoneOrder",
+		data: {id_order:id_order},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(value){
+			location.reload();
+		}
+	});
+});
+
+$('.status-done').on('click', function(){
+	var id_order = $(this).data('idOrder');
+
+	$.ajax({
+		type: "POST",
+		url: "/setNewOrder",
+		data: {id_order:id_order},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content')); 
+		},
+		success: function(value){
+			location.reload();
 		}
 	});
 });

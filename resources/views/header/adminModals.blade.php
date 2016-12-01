@@ -19,11 +19,13 @@
                                     <th class="text-center"> Наполнитель </th>
                                     <th class="text-center"> Количество </th>
                                     <th class="text-center"> Цена </th>
+                                    <th class="text-center"> Прибыль </th>
                                 </tr>
 
                                 <tr>
                                     <td colspan="4" > Всего: </td>
                                     <td id="sum-more-order"></td>
+                                    <td id="sum-profit"></td>
                                 </tr>
                             </table>
                         </div>

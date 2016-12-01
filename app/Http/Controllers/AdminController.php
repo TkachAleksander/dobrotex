@@ -236,9 +236,9 @@ class AdminController extends Controller
 
     public function showOrders()
     {
-        $orders = DB::table('orders as o')->get();
-
-        return view('admin.showOrders', ['orders'=>$orders]);
+        $new_orders = DB::table('orders')->where('status','=','обрабатывается')->get();
+        $done_orders = DB::table('orders')->where('status','=','закрыт')->get();
+        return view('admin.showOrders', ['new_orders'=>$new_orders, 'done_orders'=>$done_orders]);
     }
 
     public function showMoreOrder(Request $request)
@@ -249,5 +249,17 @@ class AdminController extends Controller
                                                    ->select('oi.*','p.*','p.name as name_product','d.*','d.name as discount_name')
                                                    ->get();
         return response()->json($moreOrder);
+    }
+
+    public function setDoneOrder(Request $request)
+    {
+        DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'закрыт']);
+        return response()->json(" ");
+    }
+
+        public function setNewOrder(Request $request)
+    {
+        DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'обрабатывается']);
+        return response()->json(" ");
     }
 }
