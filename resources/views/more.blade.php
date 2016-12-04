@@ -5,17 +5,17 @@
             <div class="col-sm-offset-1 col-sm-10 content-more">
                 <div class="row">
 
-                    <div class="col-sm-6">
-                        <img class="img-responsive" src="{{ url('img/products/'.$product[0]->name_img)}}" alt="{{$product[0]->category.' '.$product[0]->name}}" title="{{$product[0]->category.' '.$product[0]->name}}" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
+                    <div class="col-sm-6" itemscope itemtype="http://schema.org/Product">
+                        <img itemprop="image" class="img-responsive" src="{{ url('img/products/'.$product[0]->name_img)}}" alt="{{$product[0]->category.' '.$product[0]->name}}" title="{{$product[0]->category.' '.$product[0]->name}}" style="border-radius: 2px; border: 1px solid rgba(0, 31, 255, 0.22);">
                     </div>
 
                     <div class="col-sm-6">
-                        <div class="col-sm-12 Philosopher">
-                            <h3>
+                        <div class="col-sm-12 Philosopher" itemprop="name">
+                            <h1>
                                 {{$product[0]->category.' '.$product[0]->name}}
-                            </h3>
+                            </h1>
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-10" itemscope itemtype="http://schema.org/Offer">
                             <table class="table table-bordered" style="margin-bottom: 0px;">
 
                                 <tr>
@@ -33,7 +33,7 @@
                                 <tr>
                                     <th>Цена:</th>
                                     <td>
-                                        <span class="price"> 
+                                        <span class="price" itemprop="price"> 
                                         @if ($product[0]->discount != 0)
                                             {{ $product[0]->price - $discount_products[0]->discount_price.' грн' }}    
                                         @else 
@@ -66,7 +66,7 @@
                         @endforeach
                     </div>
                     <div class="col-sm-11" style="padding-top: 15px;">
-                        <p class="description" align="justify">
+                        <p class="description" align="justify" itemprop="description">
                             {{ $product[0]->description }}
                         </p>
                     </div>

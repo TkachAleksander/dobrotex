@@ -273,34 +273,6 @@ $('input#f_name, input#l_name, input#s_name, input#phone').unbind().blur( functi
 
 });
 
-// three
-function tree_toggle(event) {
-    event = event || window.event
-    var clickedElem = event.target || event.srcElement
-
-    if (!hasClass(clickedElem, 'Expand')) {
-        return // клик не там
-    }
-
-    // Node, на который кликнули
-    var node = clickedElem.parentNode
-    if (hasClass(node, 'ExpandLeaf')) {
-        return // клик на листе
-    }
-
-    // определить новый класс для узла
-    var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen'
-    // заменить текущий класс на newClass
-    // регексп находит отдельно стоящий open|close и меняет на newClass
-    var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
-    node.className = node.className.replace(re, '$1'+newClass+'$3')
-}
-
-
-function hasClass(elem, className) {
-    return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className)
-}
-
 
 $('.alert-close').on('click', function(){
 	$.cookie('cartInfo','',{ expires: -1, path:'/'});
@@ -356,27 +328,33 @@ $('.btn-more-order').on('click', function(){
 		success: function(moreOrder){
 
 			var sum = 0;
-			var profit = 0;
+			var profits = 0;
 			$moreOrder = $('#tr-moreOrder');
 			$('.new').empty();
-
+			console.log(moreOrder);
 			moreOrder.forEach( function(value, key, moreOrder){
 				moreOrder[key].price = (moreOrder[key].discount == 0) ? moreOrder[key].price : parseFloat($price = moreOrder[key].price - moreOrder[key].discount_price).toFixed(2);
 				sum += parseFloat(moreOrder[key].price) * parseFloat(moreOrder[key].quantity);
 
-				moreOrder[key].cost_price = parseFloat(moreOrder[key].price) - parseFloat(moreOrder[key].cost_price)
-				profit += moreOrder[key].cost_price;
+				moreOrder[key].profit = parseFloat(moreOrder[key].price) - parseFloat(moreOrder[key].cost_price)
+				profits += moreOrder[key].profit;
+
+				moreOrder[key].discount_price = (moreOrder[key].discount_price != null) ? moreOrder[key].discount_price : "---";
+
 				$moreOrder.after('<tr class="new">'+
 					             '<td>'+ value.id_products +'</td>'+
 					             '<td><a href="http://dobrotex/more/'+value.id_products+'" target="_blank">'+ value.category+' '+value.name_product+'</a></td>'+
 					             '<td>'+ value.set_of_characteristics +'</td>'+
+					             '<td class="text-center">'+ value.size +'</td>'+
 					             '<td class="text-center">'+ value.quantity +'</td>'+
+					             '<td>'+ moreOrder[key].cost_price +'</td>'+					             
 					             '<td>'+ moreOrder[key].price +'</td>'+
-					             '<td>'+ moreOrder[key].cost_price.toFixed(2) +'</td>'+
+					             '<td class="text-center">'+ moreOrder[key].discount_price +'</td>'+
+					             '<td>'+ moreOrder[key].profit.toFixed(2) +'</td>'+
 					             '</tr>');
 			});
 			$('#sum-more-order').html(sum.toFixed(2));
-			$('#sum-profit').html(profit.toFixed(2));
+			$('#sum-profit').html(profits.toFixed(2));
 
 		}
 	});
@@ -416,6 +394,41 @@ $('.status-done').on('click', function(){
 		}
 	});
 });
+
+
+
+
+
+
+// three
+function tree_toggle(event) {
+    event = event || window.event
+    var clickedElem = event.target || event.srcElement
+
+    if (!hasClass(clickedElem, 'Expand')) {
+        return // клик не там
+    }
+
+    // Node, на который кликнули
+    var node = clickedElem.parentNode
+    if (hasClass(node, 'ExpandLeaf')) {
+        return // клик на листе
+    }
+
+    // определить новый класс для узла
+    var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen'
+    // заменить текущий класс на newClass
+    // регексп находит отдельно стоящий open|close и меняет на newClass
+    var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
+    node.className = node.className.replace(re, '$1'+newClass+'$3')
+}
+
+
+function hasClass(elem, className) {
+    return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className)
+}
+
+
 
 
 

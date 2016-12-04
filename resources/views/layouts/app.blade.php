@@ -19,23 +19,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/admin-project.css') }}">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-    <style>
-        body {
-            font-family: 'Lato';
-            background-color: #edeef0;
-        }
-        .fa-btn {
-            margin-right: 6px;
-        }
-        .navbar-default {
-            background-color: #f5f5f5;
-        }
+    <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/jquery.printPage.js') }}"></script>
 
-        .panel-heading,
-        .panel-group .panel {
-            border-radius: 0px;
-        }
-    </style>
 </head>
 <body id="app-layout">
     <header>
@@ -92,7 +78,6 @@
 
     <!-- JavaScripts -->
 
-    <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/bootstrap-multiselect.js') }}"></script>    
     <script type="text/javascript" src="{{ url('js/project.js') }}"></script>

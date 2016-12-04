@@ -1,4 +1,5 @@
 <!-- Подробнее о заказе -->
+
 <div class="modal fade" id="moreOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-checkout" role="document">
         <div class="modal-content Lobster">
@@ -11,20 +12,24 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class=" col-sm-12">
+                        <div class="col-sm-12">
                             <table class="table table-bordered">
                                 <tr id="tr-moreOrder" class="active">
                                     <th class="text-center"> Код </th>
                                     <th class="text-center"> Имя товара </th>
                                     <th class="text-center"> Наполнитель </th>
+                                    <th class="text-center"> Размер </th>
                                     <th class="text-center"> Количество </th>
-                                    <th class="text-center"> Цена </th>
+                                    <th class="text-center"> Закупка </th>
+                                    <th class="text-center"> Цена - скидка</th>
+                                    <th class="text-center"> Скидка </th>
                                     <th class="text-center"> Прибыль </th>
                                 </tr>
 
                                 <tr>
-                                    <td colspan="4" > Всего: </td>
+                                    <td colspan="6" > Всего: </td>
                                     <td id="sum-more-order"></td>
+                                    <td></td>
                                     <td id="sum-profit"></td>
                                 </tr>
                             </table>

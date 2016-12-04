@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
 use Storage;
+use Mail; 
 
 class AdminController extends Controller
 {
@@ -262,4 +263,5 @@ class AdminController extends Controller
         DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'обрабатывается']);
         return response()->json(" ");
     }
+
 }
