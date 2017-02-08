@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8d14612e-3268-46bd-8c15-60abc632a275" name="dobrotex" url="http://dobrot04.ftp.ukraine.com.ua">
+        <fileTransfer host="dobrot04.ftp.ukraine.com.ua" port="21" rootFolder="/dobrotex.com.ua/www" password="df98df9edf98df99df9cdf9cdf98df9edf98df99df9cdf9cdffbdfdb" username="dobrot04_ftp">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

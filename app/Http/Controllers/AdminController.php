@@ -124,8 +124,14 @@ class AdminController extends Controller
 
     public function hideProduct($id, $bool) 
     {
-        DB::table('products')->where('id', $id)->update(['show' => $bool]);
-        DB::table('groups_products')->where('id_prod', $id)->update(['show' => $bool]);
+        DB::table('products')
+            ->where('id', $id)
+            ->update(['show' => $bool]);
+
+        DB::table('groups_products')
+            ->where('id_prod', $id)
+            ->update(['show' => $bool]);
+
         return redirect('/admin/showProducts');
     }
 
@@ -154,14 +160,16 @@ class AdminController extends Controller
     public function setContact(){
         // Вывод списка продуктов
         $products = DB::table('products')
-                        ->leftJoin('discounts', 'discounts.id', '=', 'products.discount')
-                        ->select('products.*', 'discounts.name as discount_name')
-                        ->get();
+            ->leftJoin('discounts', 'discounts.id', '=', 'products.discount')
+            ->select('products.*', 'discounts.name as discount_name')
+            ->get();
         // Вывод корней связей
-        $IsRoots = DB::table('groups_products as gp')->join('products as p', 'p.id', '=', 'gp.id_group')
-                                                     ->select('gp.id_group','p.category', 'p.name')
-                                                     ->orderBy('gp.id_group','asc')
-                                                     ->distinct()->get();
+        $IsRoots = DB::table('groups_products as gp')
+            ->join('products as p', 'p.id', '=', 'gp.id_group')
+            ->select('gp.id_group','p.category', 'p.name')
+            ->orderBy('gp.id_group','asc')
+            ->distinct()->get();
+
         // Изменяем key корня связи на id элемента
         foreach ($IsRoots as $old_key => $value) {
             $new_key = $value->id_group;
@@ -172,9 +180,10 @@ class AdminController extends Controller
         if($IsRoots != null){
             foreach ($IsRoots as $key => $IsRoot) {
                 $IsRoot = $IsRoot->id_group;  
-                $contents[$IsRoot] = DB::table('groups_products as gp')->join('products as p', 'p.id', '=', 'gp.id_prod')
-                                                                       ->where('id_group', '=', $IsRoot)
-                                                                       ->select('gp.id_prod','p.category','p.name')->get();
+                $contents[$IsRoot] = DB::table('groups_products as gp')
+                    ->join('products as p', 'p.id', '=', 'gp.id_prod')
+                    ->where('id_group', '=', $IsRoot)
+                    ->select('gp.id_prod','p.category','p.name')->get();
                                                                       
             }
         } else {
@@ -229,8 +238,10 @@ class AdminController extends Controller
 
     public function removeChildGroup(Request $request)
     {
-        DB::table('groups_products')->where('id_group','=', $request->input('id_root'))
-                                    ->where('id_prod','=', $request->input('id_child'))->delete();
+        DB::table('groups_products')
+            ->where('id_group','=', $request->input('id_root'))
+            ->where('id_prod','=', $request->input('id_child'))
+            ->delete();
 
         return response()->json(" ");
     }
@@ -244,11 +255,12 @@ class AdminController extends Controller
 
     public function showMoreOrder(Request $request)
     {
-        $moreOrder = DB::table('orders_info as oi')->where('oi.id_orders','=', $request->input('id_order'))
-                                                   ->join('products as p', 'p.id','=','oi.id_products')
-                                                   ->leftJoin('discounts as d', 'd.id','=','p.discount')
-                                                   ->select('oi.*','p.*','p.name as name_product','d.*','d.name as discount_name')
-                                                   ->get();
+        $moreOrder = DB::table('orders_info as oi')
+            ->where('oi.id_orders','=', $request->input('id_order'))
+            ->join('products as p', 'p.id','=','oi.id_products')
+            ->leftJoin('discounts as d', 'd.id','=','p.discount')
+            ->select('oi.*','p.*','p.name as name_product','d.*','d.name as discount_name')
+            ->get();
         return response()->json($moreOrder);
     }
 
@@ -258,10 +270,21 @@ class AdminController extends Controller
         return response()->json(" ");
     }
 
-        public function setNewOrder(Request $request)
+    public function setNewOrder(Request $request)
     {
         DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'обрабатывается']);
         return response()->json(" ");
     }
 
+
+    public function editLogin()
+    {
+        return view('auth.register');
+    }
+
+    public function valueFields(){
+        $value_fields = DB::table('values_fields')->get();
+
+        return view('admin.valueFields', ['value_fields' => $value_fields]);
+    }
 }

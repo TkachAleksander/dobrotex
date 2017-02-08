@@ -1,8 +1,11 @@
 /* Подсветка активных вкладок */
-if (window.location.href == 'http://dobrotex/'){ $('#cat2').addClass('active'); }
-if (window.location.href == 'http://dobrotex/blankets' || $('#category').val() == 'Одеяло'){ $('#cat1').addClass('active'); }
-if (window.location.href == 'http://dobrotex/pillow' || $('#category').val() == 'Подушка'){ $('#cat0').addClass('active'); }
+if (window.location.href == 'http://dobrotex.com.ua/'){ $('#cat2').addClass('active'); }
+if (window.location.href == 'http://dobrotex.com.ua/blankets' || $('#category').val() == 'Одеяло'){ $('#cat1').addClass('active'); }
+if (window.location.href == 'http://dobrotex.com.ua/pillow' || $('#category').val() == 'Подушка'){ $('#cat0').addClass('active'); }
 
+/* Cart */
+// Вывод суммы корзины при загрузке страницы
+updateSum($.cookie('cart'));
 
 /* Подтверждение удаления */
 $('.confirmDelete').on('click', function() {
@@ -331,7 +334,6 @@ $('.btn-more-order').on('click', function(){
 			var profits = 0;
 			$moreOrder = $('#tr-moreOrder');
 			$('.new').empty();
-			console.log(moreOrder);
 			moreOrder.forEach( function(value, key, moreOrder){
 				moreOrder[key].price = (moreOrder[key].discount == 0) ? moreOrder[key].price : parseFloat($price = moreOrder[key].price - moreOrder[key].discount_price).toFixed(2);
 				sum += parseFloat(moreOrder[key].price) * parseFloat(moreOrder[key].quantity);
@@ -432,6 +434,3 @@ function hasClass(elem, className) {
 
 
 
-/* Cart */
-// Вывод суммы корзины при загрузке страницы 
-updateSum($.cookie('cart'));

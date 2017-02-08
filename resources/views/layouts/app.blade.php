@@ -64,8 +64,10 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+
+                                <li><a href="{{ url('/admin/editLogin') }}"><i class="fa glyphicon glyphicon-user"></i> Сменить логин/пароль </a></li>    
+                                <li><a href="{{ url('/logout') }}"><i class="fa glyphicon glyphicon-log-out"></i> Выйти </a></li>
+
                             </ul>
                         </li>
                     @endif

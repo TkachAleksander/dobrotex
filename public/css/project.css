@@ -75,6 +75,10 @@ body {
     vertical-align: middle;
 }
 
+.table-cart > tbody > tr > td:last-child{
+	width: 90px;
+}
+
 .name-product-cart {
 	max-width: 150px;
 }
@@ -149,13 +153,16 @@ body {
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:active,
+.navbar-default .navbar-nav>.active>a:active {
+	color: #fff;
+	background-color: rgba(255, 0, 0, 0.3);
+}
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:active,
-.navbar-default .navbar-nav>li>a:focus {
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:active {
 	color: #fff;
-	background-color: rgba(255, 0, 0, 0.3);
 }
 
 .navbar-default .navbar-brand:hover,

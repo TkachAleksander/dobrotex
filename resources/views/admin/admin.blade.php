@@ -8,21 +8,12 @@
                 <div class="panel-heading">Панель управления</div>
 
                 <div class="panel-body text-center">
-<!--                     <ul>
-                        <li><a href="{{ url('/admin/addNewProduct') }}"> Добавить товар </a></li>
-                        <li><a href="{{ url('/admin/addNewDiscount') }}"> Добавить скидку </a></li>
-                        <li><a href="{{ url('/admin/showProducts') }}"> Управление товарами </a></li>
-                        <li><a href="{{ url('/admin/setContact') }}"> Связь товаров </a></li>
-                        <li><a href="{{ url('/admin/showOrders') }}"> Список заказов </a></li>
-
-                        <li><a href="{{ url('/register') }}">Регистрация</a></li>
-
-                    </ul> -->
-                    <div class="block-menu"><a href="{{ url('/admin/addNewProduct') }}"> Добавить товар </a></div>
-                    <div class="block-menu"><a href="{{ url('/admin/addNewDiscount') }}"> Добавить скидку </a></div>
-                    <div class="block-menu"><a href="{{ url('/admin/showProducts') }}"> Управление товарами </a></div>
-                    <div class="block-menu"><a href="{{ url('/admin/setContact') }}"> Связь товаров </a></div>
-                    <div class="block-menu"><a href="{{ url('/admin/showOrders') }}"> Список заказов </a></div>
+                    <a href="{{ url('/admin/addNewProduct') }}"><div class="block-menu"> Добавить товар </div></a>
+                    <a href="{{ url('/admin/addNewDiscount') }}"><div class="block-menu"> Добавить скидку </div></a>
+                    <a href="{{ url('/admin/showProducts') }}"><div class="block-menu"> Управление товарами </div></a>
+                    <a href="{{ url('/admin/setContact') }}"><div class="block-menu"> Связь товаров </div></a>
+                    <a href="{{ url('/admin/showOrders') }}"><div class="block-menu"> Список заказов </div></a>
+                    <a href="{{ url('/admin/valueFields') }}"><div class="block-menu"> Управление полями </div></a>
                 </div>
             </div>
         </div>
