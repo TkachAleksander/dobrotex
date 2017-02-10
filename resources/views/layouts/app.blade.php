@@ -9,15 +9,11 @@
     <title>Панель управления администратора</title>
 
     <!-- Fonts -->
- <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"> -->
 
     <!-- Styles -->
-   
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap-multiselect.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/admin-project.css') }}">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/jquery.printPage.js') }}"></script>
@@ -31,7 +27,6 @@
         <div class="container">
             <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
@@ -39,22 +34,20 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
 
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
+
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/') }}">Вернуться на сайт</a></li>
                     <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-cogs"></i>Панель управления</a></li>
                 </ul>
 
-                <!-- Right Side Of Navbar -->
+
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                     @else
@@ -81,9 +74,8 @@
     <!-- JavaScripts -->
 
     <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url('js/bootstrap-multiselect.js') }}"></script>    
+    <script type="text/javascript" src="{{ url('js/bootstrap-multiselect.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/project.js') }}"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 </body>
 </html>

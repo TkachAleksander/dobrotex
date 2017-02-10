@@ -1,11 +1,12 @@
 /* Подсветка активных вкладок */
+if (window.location.href == 'http://dobrotex.com.ua/about/company' || $('#category').val() == 'О нас'){ $('#cat3').addClass('active'); }
 if (window.location.href == 'http://dobrotex.com.ua/'){ $('#cat2').addClass('active'); }
 if (window.location.href == 'http://dobrotex.com.ua/blankets' || $('#category').val() == 'Одеяло'){ $('#cat1').addClass('active'); }
 if (window.location.href == 'http://dobrotex.com.ua/pillow' || $('#category').val() == 'Подушка'){ $('#cat0').addClass('active'); }
 
-/* Cart */
-// Вывод суммы корзины при загрузке страницы
-updateSum($.cookie('cart'));
+
+
+
 
 /* Подтверждение удаления */
 $('.confirmDelete').on('click', function() {
@@ -18,6 +19,7 @@ $('.confirmDelete').on('click', function() {
 
 
 /* Multiselect */
+
 if ($('.multiselect').length > 0){
 	$('.multiselect').multiselect();
 }
@@ -397,8 +399,39 @@ $('.status-done').on('click', function(){
 	});
 });
 
+$('.status-in-archive').on('click', function(){
+	var id_order = $(this).data('idOrder');
 
+	$.ajax({
+		type: "POST",
+		url: "/setInArchive",
+		data: {id_order:id_order},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+		},
+		success: function(value){
+			location.reload();
+		}
+	});
+});
 
+$('.status-out-archive').on('click', function(){
+	var id_order = $(this).data('idOrder');
+
+	$.ajax({
+		type: "POST",
+		url: "/setOutArchive",
+		data: {id_order:id_order},
+		dataType: "JSON",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+		},
+		success: function(value){
+			location.reload();
+		}
+	});
+});
 
 
 
@@ -432,5 +465,8 @@ function hasClass(elem, className) {
 
 
 
-
-
+/* Cart */
+// Вывод суммы корзины при загрузке страницы
+if ($.cookie('cart') != null){
+	updateSum($.cookie('cart'));
+}

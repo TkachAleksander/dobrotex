@@ -34,10 +34,13 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/removeChildGroup', 'AdminController@removeChildGroup');
 	
 	Route::get('/admin/showOrders', 'AdminController@showOrders');
+	Route::get('/admin/showOrdersInArchive', 'AdminController@showOrdersInArchive');
 	Route::post('/showMoreOrder', 'AdminController@showMoreOrder');
 	
 	Route::post('/setDoneOrder', 'AdminController@setDoneOrder');
 	Route::post('/setNewOrder', 'AdminController@setNewOrder');
+	Route::post('/setInArchive', 'AdminController@setInArchive');
+	Route::post('/setOutArchive', 'AdminController@setOutArchive');
 
 	Route::get('/admin/valueFields', 'AdminController@valueFields');
 });	
@@ -49,13 +52,15 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/cartPlus', 'CartController@cartPlus');
 	Route::post('/cartDelete', 'CartController@cartDelete');
 	Route::post('/updateSum', 'CartController@updateSum');
-	Route::get('/ch/checkout', 'CheckoutController@viewCheckout');
+
 	
 	Route::get('/admin/editLogin', 'AdminController@editLogin');
 	Route::post('/registration', 'EditPasswordController@registration');
+	Route::get('/about/company', 'AboutController@about');
 
 
 /* Checkout */
+Route::get('/checkout/order', 'CheckoutController@viewCheckout');
 Route::post('/orders', 'OrdersController@orders');
 
 

@@ -10,19 +10,24 @@
 }
 
 .status-done:hover,
-.status-new:hover {
-    background-color: #dfdfdf;
+.status-new:hover,
+.status-in-archive:hover,
+.status-out-archive:hover{
+    background-color: #ededed;
     cursor: pointer;
 }
 
 .block-menu{
     padding: 10px;
-    display:inline-block;
-    border: 1px solid #ddd; 
+    /*display:inline-block;*/
+    /*border: 1px solid #ddd;*/
+    width: 200px;
+    color: #000;
 }
 
 .block-menu:hover {
-    background-color: rgba(0, 20, 255, 0.4);
+    background-color: rgba(0, 31, 255, 0.15);
+    color: #000;
 }
 
 .block-menu:hover a {

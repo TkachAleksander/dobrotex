@@ -185,6 +185,9 @@ body {
 	background-color: #486991;
 }
 
+.img-center {
+	margin: 0 auto;
+}
 
 .panel {
 	border-radius: 2px;
@@ -238,6 +241,11 @@ body {
 .container {
 	margin-top: 90px;
 	margin-bottom: 120px;
+	/*min-width: 260px;*/
+}
+
+.container-fluid {
+	max-width: 1333px;
 }
 
 .content {
@@ -246,6 +254,13 @@ body {
 
 .content-more {
 	padding: 40px;
+}
+
+.content-checkout{
+	background-color: #fff;
+	border: 1px solid rgba(0, 31, 255, 0.22);
+	border-radius: 2px;
+	margin-bottom: 20px;
 }
 
 .buy-more,
@@ -302,7 +317,36 @@ body {
 	text-align: right;
 }
 
+.font-weight-normal {
+	font-weight: normal;
+}
 
+.border-none,
+.border-none>tbody>tr>td,
+.border-none>tbody>tr>th,
+.border-none>tfoot>tr>td,
+.border-none>tfoot>tr>th,
+.border-none>thead>tr>td,
+.border-none>thead>tr>th{
+	border: none;
+	padding: 0px;
+}
+.border-none span {
+	font-size: 12px;
+}
+
+.padding-bottom-15 {
+	padding-bottom: 15px;
+}
+
+.font-size-about {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
+
+.justify {
+	text-align: justify;
+}
 
 footer {
 	position: absolute;

@@ -19,7 +19,7 @@
 </style>
 
 <p> Новый заказ: </p>
-<b> {{ $l_name." ".$f_name." ".$s_name}} </b><br>
+<b> {{ $name}} </b><br>
 <b> тел. </b>{{ " ".$phone}}<br>
 <b> адрес: </b>{{ " ".$address }}
 
@@ -54,4 +54,4 @@
 	<td class="text-right" colspan="6"> Сумма </td>
 	<td class="text-center" >{{ $sum }}</td>
 </tr>
-<table>
+</table>

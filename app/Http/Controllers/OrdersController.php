@@ -11,18 +11,19 @@ class OrdersController extends Controller
 {
     public function orders(Request $request)
     {
+//		dd($request->all());
     	($request->input('address') != null) ? $address = $request->input('address') : $address = 'самовывоз';
     	$id_order = DB::table('orders')
 			->insertGetId([
-				'l_name' => $request->input('l_name'),
-				'f_name' => $request->input('f_name'),
-				's_name' => $request->input('s_name'),
-				'phone'  => $request->input('phone'),
+				'name' => $request->input('name'),
+				'phone' => $request->input('phone'),
+				'delivery' => $request->input('delivery'),
+				'payment'  => $request->input('payment'),
 				'address' => $address
 			]);
 
     	$cart_info = DB::table('cart as c')
-			->where('id_cookie','=',$_COOKIE["cart"])
+			->where('id_cookie','=',$_COOKIE['cart'])
 			->join('products as p', 'p.id','=','c.id_products')
 			->leftJoin('discounts as d', 'd.id','=','p.discount')
 			->select('p.id','p.category','p.name','p.price','p.size','p.kg','p.set_of_characteristics','c.quantity','d.discount_price')
@@ -37,11 +38,9 @@ class OrdersController extends Controller
 				]);
     	}
 
-        $l_name = $request->input('l_name');
-        $f_name = $request->input('f_name');
-        $s_name = $request->input('s_name');
+        $name = $request->input('name');
         $phone  = $request->input('phone');
-        Mail::send('emails.order', array('l_name'=>$l_name,'f_name'=>$f_name, 's_name'=>$s_name, 'phone'=>$phone, 'address'=>$address, 'cart_info'=>$cart_info), function($message)
+        Mail::send('emails.order', array('name'=>$name, 'phone'=>$phone, 'address'=>$address, 'cart_info'=>$cart_info), function($message)
         {
             $message->from('us@example.com', 'Laravel');
         
@@ -53,4 +52,5 @@ class OrdersController extends Controller
     	setcookie("cart","",-1);
     	return redirect('/');
     }
+
 }

@@ -253,6 +253,12 @@ class AdminController extends Controller
         return view('admin.showOrders', ['new_orders'=>$new_orders, 'done_orders'=>$done_orders]);
     }
 
+    public function showOrdersInArchive(){
+        $orders_in_archive = DB::table('orders')->where('status','=','в архиве')->get();
+        return view('admin.showOrdersInArchive', ['orders_in_archive'=>$orders_in_archive]);
+    }
+
+
     public function showMoreOrder(Request $request)
     {
         $moreOrder = DB::table('orders_info as oi')
@@ -276,6 +282,17 @@ class AdminController extends Controller
         return response()->json(" ");
     }
 
+    public function setInArchive(Request $request)
+    {
+        DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'в архиве']);
+        return response()->json(" ");
+    }
+
+    public function setOutArchive(Request $request)
+    {
+        DB::table('orders')->where('id','=', $request->input('id_order'))->update(['status'=>'закрыт']);
+        return response()->json(" ");
+    }
 
     public function editLogin()
     {
