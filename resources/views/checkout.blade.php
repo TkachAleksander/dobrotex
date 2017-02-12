@@ -13,12 +13,12 @@
 
                         <table class="table table-bordered table-cart Lobster">
                             <tr id="th-cart" class="active">
-                                <th class="text-center hide-mobile"> Имя товара </th>
-                                <th class="text-center"> Фото </th>
-                                <th class="text-center hide-mobile"> Код </th>
-                                <th class="text-center"> Размер </th>
-                                <th class="text-center"> Количество </th>
-                                <th class="text-center"> Цена </th>
+                                <td class="text-center hide-mobile"> Имя товара </td>
+                                <td class="text-center"> Фото </td>
+                                <td class="text-center hide-mobile"> Код </td>
+                                <td class="text-center"> Размер </td>
+                                <td class="text-center"> Количество </td>
+                                <td class="text-center"> Цена </td>
                             </tr>
                             <?php $sum = 0; ?>
                             @foreach($array_products as $product)
@@ -36,7 +36,7 @@
                             @endforeach
                             <tr>
                                 <td colspan="4"></td>
-                                <td class="text-center "><b>Сумма</b></td>
+                                <td class="text-center "> Сумма </td>
                                 <td class="text-center summa-cart" class="text-center"> {{number_format($sum, 2, '.', '')}} </td>
                             </tr>
                         </table>
@@ -91,20 +91,20 @@
                         </div>
                     </form>
 
-                    {{--@include('api')--}}
-                    {{--< ?php--}}
-                    {{--$liqpay = new LiqPay('i26478810090', 'dTEWxZNkuw4bw3WJMfcfJoz6u8CeGyYcqC6NIU34');--}}
-                    {{--$html = $liqpay->cnb_form(array(--}}
-                            {{--'action'         => 'pay',--}}
-                            {{--'amount'         => 1,//$sum,--}}
-                            {{--'currency'       => 'UAH',--}}
-                            {{--'description'    => 'Оплата покупок, интернет-магазин Dobrotex.',--}}
-                            {{--'order_id'       => 'order_id_1',--}}
-                            {{--'version'        => '3'--}}
-                    {{--));--}}
+                    @include('api')
+                    <?php
+                    $liqpay = new LiqPay('i26478810090', 'dTEWxZNkuw4bw3WJMfcfJoz6u8CeGyYcqC6NIU34');
+                    $html = $liqpay->cnb_form(array(
+                            'action'         => 'pay',
+                            'amount'         => 1,//$sum,
+                            'currency'       => 'UAH',
+                            'description'    => 'Оплата покупок, интернет-магазин Dobrotex.',
+                            'order_id'       => 'order_id_1',
+                            'version'        => '3'
+                    ));
 
-                    {{--echo $html;--}}
-                    {{--?>--}}
+                    echo $html;
+                    ?>
 
                 </div>
             </div>

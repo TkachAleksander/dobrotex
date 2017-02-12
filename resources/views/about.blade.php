@@ -8,7 +8,7 @@
                 <div class="row">
 
                     <div class="col-sm-5">
-                        <img class="img-responsive" src="{{ url('img/dobrotex.jpg') }}" style="margin-bottom: 20px;">
+                        <img class="img-responsive" src="{{ url('img/dobrotex.jpg') }}" style="margin-bottom: 20px; border: 1px solid #000">
                     </div>
                     <div class="col-sm-7 Philosopher font-size-about justify" style="padding-top: 35px;">
                         Dobrotex – это молодая украинская развивающаяся компания, которая смогла всего за 7 лет положительно зарекомендовать себя на рынке пухо-перьевых изделий.
@@ -37,7 +37,7 @@
                             <label> Адрес: </label><br>
                                 Машиностроителей , 4, Украина , г.Сумы<br><br>
                             <label> График работы: </label><br>
-                                ПН-ПТ 9:00 - 17:00 <br><br>
+                                ПН-СБ 9:00 - 17:00 <br><br>
                             <label> Контакты: </label><br>
                                 066-06-222-06 (розница)<br>
                                 066-06-333-06 (опт)

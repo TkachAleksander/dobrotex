@@ -8,7 +8,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand Oswald" href="/">Dobrotex</a>
+            <a class="navbar-brand Oswald" href="/">
+                <img class="img-responsive" src="{{ url('img/dobrotex_logo.png') }}">
+            </a>
         </div>
 
 
@@ -28,7 +30,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <div class="cart" data-toggle="modal" data-target="#cart">
-                        <p class="text-center summa-cart"><p>
+                        <p class="text-center summa-cart"> 0.00 <p>
                     </div>
                 </li>
             </ul>

@@ -6,7 +6,7 @@
 
             <div class="col-sm-offset-1 col-sm-10 content">
                 <div class="row">
-
+                    @for($i=0;$i<15; $i++)
                     @foreach ($products as $product)
                     <div class="col-sm-6 col-md-4" itemscope itemtype="http://schema.org/Product">
                         <div class="thumbnail">
@@ -33,6 +33,7 @@
                         </div>
                     </div>
                     @endforeach
+                        @endfor
                 </div>
             </div> 	
         </div>

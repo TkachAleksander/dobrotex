@@ -122,6 +122,7 @@ body {
 .navbar {
 	background-color: rgba(80, 114, 153, 0.63);
 	height: 80px;
+	overflow: hidden;
 }
 
 .navbar-toggle {
@@ -130,7 +131,7 @@ body {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #fff;
+	background-color: #000;
 }
 
 .navbar-header {
@@ -138,12 +139,20 @@ body {
 }
 
 .navbar-brand {
-	font-size: 3.5em;
-	padding: 21px 0px 0px 40px;
+	/*font-size: 3.5em;*/
+	/*padding: 21px 0px 0px 40px;*/
+	padding: 0px;
+
+}
+.navbar-brand img {
+	width: 170px;
+	top: -10px;
+	position: relative;
+	margin-left: 20px;
 }
 
 .navbar-default {
-	border-color: #000;
+	border-color: #1370c1;
 }
 
 .navbar-default .navbar-brand,
@@ -219,7 +228,7 @@ body {
     width: 80px;
     margin-top: 14px;
     margin-right: 14px;
-    background-color: rgba(255, 0, 0, 0.46);
+    background-color: rgba(255, 0, 0, 0.34);
     border-radius: 10px;
     border: 2px solid #fff;
 }
@@ -258,7 +267,7 @@ body {
 
 .content-checkout{
 	background-color: #fff;
-	border: 1px solid rgba(0, 31, 255, 0.22);
+	border: 1px solid #ddd;/*rgba(0, 31, 255, 0.22);*/
 	border-radius: 2px;
 	margin-bottom: 20px;
 }
@@ -278,7 +287,7 @@ body {
 .content-more {
 	background-color: rgba(255,255,255,0.9);
 	min-height: 500px;
-	border: 1px solid rgba(0, 31, 255, 0.22);
+	border: 1px solid #ddd;/*rgba(0, 31, 255, 0.22);*/
 	border-radius: 2px;
 }
 

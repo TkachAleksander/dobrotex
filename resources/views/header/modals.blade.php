@@ -11,16 +11,16 @@
             <div class="modal-body">
                 <table class="table table-bordered table-cart Lobster">
                     <tr id="th-cart" class="active">
-                        <th class="text-center hide-mobile"> Имя товара </th>
-                        <th class="text-center"> Фото </th>
-                        <th class="text-center hide-mobile"> Код </th>
-                        <th class="text-center"> Размер </th>
-                        <th class="text-center"> Количество </th>
-                        <th class="text-center"> Цена </th>
+                        <td class="text-center hide-mobile"> Имя товара </td>
+                        <td class="text-center"> Фото </td>
+                        <td class="text-center hide-mobile"> Код </td>
+                        <td class="text-center"> Размер </td>
+                        <td class="text-center" style="min-width: 145px;"> Количество </td>
+                        <td class="text-center"> Цена </td>
                     </tr>
                     <tr>
                         <td colspan="4"></td>
-                        <td class="text-center "><b>Сумма</b></td>
+                        <td class="text-center ">Сумма</td>
                         <td class="text-center summa-cart" class="text-center">0 грн</td>
                     </tr>
                 </table> 
