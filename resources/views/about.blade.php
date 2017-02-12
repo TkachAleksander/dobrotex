@@ -7,8 +7,10 @@
             <div class="col-sm-offset-1 col-sm-10 content" style="margin-bottom: 30px;">
                 <div class="row">
 
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6 Philosopher font-size-about justify">
+                    <div class="col-sm-5">
+                        <img class="img-responsive" src="{{ url('img/dobrotex.jpg') }}" style="margin-bottom: 20px;">
+                    </div>
+                    <div class="col-sm-7 Philosopher font-size-about justify" style="padding-top: 35px;">
                         Dobrotex – это молодая украинская развивающаяся компания, которая смогла всего за 7 лет положительно зарекомендовать себя на рынке пухо-перьевых изделий.
                     </div>
                     <div class="col-sm-12 Philosopher font-size-about justify">
@@ -28,14 +30,14 @@
                         <h3> Как нас найти ? </h3>
                         <hr>
                         <div class="col-sm-7">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7988.0525787139195!2d34.81249817404273!3d50.90375589804947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41290220fc73a461%3A0xdb74f6366b836c28!2z0KHRg9C80YssINCh0YPQvNGB0LrQsNGPINC-0LHQu9Cw0YHRgtGM!5e0!3m2!1sru!2sua!4v1486724682624" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.989565368562!2d34.79010943462935!3d50.94240602056672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412903ba008af7f9%3A0x191aa7eca89c7616!2z0LLRg9C70LjRhtGPINCc0LDRiNC40L3QvtCx0YPQtNGW0LLQvdC40LrRltCyLCA0LCDQodGD0LzQuCwg0KHRg9C80YHRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1sru!2sua!4v1486930331794" width="100%" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                         <div class="col-sm-5">
 
                             <label> Адрес: </label><br>
-                                улица Сумская дом.98<br><br>
+                                Машиностроителей , 4, Украина , г.Сумы<br><br>
                             <label> График работы: </label><br>
-                                ПН-ПТ 9:00 - 18:00 <br><br>
+                                ПН-ПТ 9:00 - 17:00 <br><br>
                             <label> Контакты: </label><br>
                                 066-06-222-06 (розница)<br>
                                 066-06-333-06 (опт)

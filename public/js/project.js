@@ -1,8 +1,8 @@
 /* Подсветка активных вкладок */
 if (window.location.href == 'http://dobrotex.com.ua/about/company' || $('#category').val() == 'О нас'){ $('#cat3').addClass('active'); }
-if (window.location.href == 'http://dobrotex.com.ua/'){ $('#cat2').addClass('active'); }
+if (window.location.href == 'http://dobrotex.com.ua/'){ $('#cat0').addClass('active'); }
 if (window.location.href == 'http://dobrotex.com.ua/blankets' || $('#category').val() == 'Одеяло'){ $('#cat1').addClass('active'); }
-if (window.location.href == 'http://dobrotex.com.ua/pillow' || $('#category').val() == 'Подушка'){ $('#cat0').addClass('active'); }
+if (window.location.href == 'http://dobrotex.com.ua/pillow' || $('#category').val() == 'Подушка'){ $('#cat2').addClass('active'); }
 
 
 

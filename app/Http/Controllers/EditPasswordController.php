@@ -14,7 +14,7 @@ class EditPasswordController extends Controller
     {
     	 $this->validate($request, [
             'name' => 'required|max:80',
-            'email' => 'required|email|max:255',
+//            'email' => 'required|max:255',
             'password' => 'required|min:6|confirmed',
         ],
         [
@@ -25,13 +25,15 @@ class EditPasswordController extends Controller
             'confirmed' => 'Пароли не совпадают',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt( $request->input('password') )
         ]);
 
-        DB::table('users')->where('id','!=', 1)->take(1)->delete();
+        $last_id = $user->id;
+dd($last_id);
+        DB::table('users')->where('id','!=', $last_id)->delete();
 
         return redirect('/login');
     }

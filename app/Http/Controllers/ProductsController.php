@@ -43,6 +43,8 @@ class ProductsController extends Controller
         //         array_push($sizes, $value[0]); 
         //     }
         // } else {
+
+
             $sizes=array();
             foreach ($id_prods as $id_prod) {
                 $value = DB::table('products')
@@ -52,16 +54,16 @@ class ProductsController extends Controller
         
                 array_push($sizes, $value[0]); 
             // }
-    }
-    
+            }
 
     return view('more', [
-    	                'title' => 'Подробнее',
+    	                'title' => 'Dobrotex | Купить ' .$product[0]->category.' '.$product[0]->name,
     	                'top_menu' => $top_menu,
     	                'product' => $product,
                         'discount_products' => $discount_products,
                         'sizes' => $sizes
     	                ]);
+
     }
 
     public function getProducts($category) {
